@@ -1,0 +1,13 @@
+adventurelib
+colorama
+fastapi
+flask
+guizero
+mediapipe
+networkzero
+pandas
+pgzero
+printy
+pyttsx3
+sympy
+z3-solver
