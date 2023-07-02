@@ -14,7 +14,7 @@ The process is incremental and can easily be run each time the list of Python pa
 
 ## Details
 
-### [requirements.txt]()
+### [requirements.txt](requirements.txt)
 
 Contains the list of the Python packages to download from [PyPI](https://pypi.org) (Python Package Index). 
 
@@ -40,7 +40,7 @@ z3-solver
 
 It is possible to specify a version (exact, minimum, etc) for each package but we do not need this for now. 
 
-### [download.bat]() / [download.sh]()
+### [download.bat](download.bat) / [download.sh](download.sh)
 
 Reads `requirements.txt` and downloads all the packages (including their dependencies) into `./python-packages/` (created automatically). 
 
@@ -81,7 +81,7 @@ This folder must be accessible (read-only) by all the students attending CodeClu
 
 A priori #2 should be easier to manage.
 
-### [codeclub_dws.py]()
+### [codeclub_dws.py](codeclub_dws.py)
 
 A convenience Python file that adds the location of `python-packages/` to `PYTHONPATH` which is the list of 
 folders where a Python program can import packages from.
@@ -97,9 +97,9 @@ sys.path.append(PATH_TO_PYTHON_PACKAGES)
 
 The students would copy this file into their project folder and import it into their main program (see hereunder for an example).
 
-### [demo-adventurelib.py]()
+### [demo-adventurelib.py](demo-adventurelib.py)
 
-A Python test program that uses some downloaded Python packages. 
+A Python demo program that uses some downloaded Python packages. 
 
 ```python
 # Add ".../CodeClub/python-packages/" to PYTHONPATH.
