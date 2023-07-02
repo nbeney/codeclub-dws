@@ -1,5 +1,6 @@
 adventurelib
 colorama
+emoticon
 fastapi
 flask
 guizero
@@ -8,6 +9,7 @@ networkzero
 pandas
 pgzero
 printy
+pyfiglet
 pyttsx3
 sympy
 z3-solver

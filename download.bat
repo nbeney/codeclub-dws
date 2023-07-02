@@ -1,1 +1,1 @@
-pip install --requirement=./requirements.txt --target=./python-libs --upgrade
+pip install --requirement=./requirements.txt --target=./python-packages --upgrade
