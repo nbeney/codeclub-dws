@@ -12,6 +12,35 @@ The process is:
 
 The process is incremental and can easily be run each time the list of Python packages is modified.
 
+```mermaid
+flowchart LR
+    codeclub_organizers(("Code Club\norganizers"))
+
+    codeclub_students(("Code Club\nstudents"))
+
+    requirements_txt[/"requirements.txt\n(list of Python\npackages)"/]
+
+    pypi[/"https://pypi.org\n(repository of\nPython packages)"/]
+
+    download("Download\n(pip install)")
+
+    validation("Check (security,\nsafety, etc)")
+
+    staging_dir[/"python_packages/\n(staging folder)"/]
+
+    codeclub_dir[/"Code Club/\n(shared folder)"/]
+
+    codeclub_organizers --> requirements_txt
+    requirements_txt --> download
+    pypi --> download
+    subgraph IT
+        download --> staging_dir
+        staging_dir --> validation
+        validation --> codeclub_dir
+    end
+    codeclub_dir --> codeclub_students
+```
+
 ## Details
 
 ### [requirements.txt](requirements.txt)
