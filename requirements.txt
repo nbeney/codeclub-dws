@@ -2,7 +2,7 @@
 # Doc: https://adventurelib.readthedocs.io/
 adventurelib
 
-# A package to develop GUI games.
+# A package to develop GUI apps and games.
 # Doc: https://lawsie.github.io/guizero/
 guizero[images]
 
