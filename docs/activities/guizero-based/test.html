@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Isotope JS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<style>
+    /* .container{ border: 2px solid green }
+.grid-item{ border: 2px solid red; padding: 20px;}
+.grid{ border: 1px solid blue} */
+    
+    .filters ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        border-bottom: 2px solid #D9D9D9;
+        margin: 30px 15px
+    }
+    
+    .filters ul li {
+        display: inlnie-block;
+        text-align: center;
+        margin-right: 12px;
+        padding: 0 5px 8px 5px;
+        font-weight: 700;
+        font-size: 16px;
+        cursor: pointer;
+        position: relative;
+        margin-bottom: -2px;
+        color: #777;
+        transition: 0.3s;
+        text-transform: uppercase;
+    }
+    
+    .filters ul li:hover {
+        color: #EB2D3A;
+    }
+    
+    .filters ul li.is-checked {
+        border-bottom: 2px solid #EB2D3A;
+    }
+    
+    .filters ul li:last-child {
+        margin-right: 0;
+    }
+    
+    .grid .grid-item h1 {
+        background: #EEEEEE;
+        height: 150px;
+        line-height: 150px;
+        color: white;
+        font-size: 3em;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="filters">
+                    <ul>
+                        <li class="is-checked" data-filter="*">All</li>
+                        <li data-filter=".idea">!dea</li>
+                        <li data-filter=".ui">UI</li>
+                        <li data-filter=".ux">UX</li>
+                        <li data-filter=".code">Code</li>
+                        <li data-filter=".logic">Logic</li>
+                        <li data-filter=".creativity">Creativity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="rows grid data-isotope='{ " itemSelector ": ".grid-item ", "masonry ": { "columnWidth ": 200 } }'">
+                    <div class="col-md-3 grid-item logic" data-category="websites">
+                        <h1>1</h1>
+                    </div>
+                    <div class="col-md-3 grid-item flyers" data-category="flyers">
+                        <h1>2</h1>
+                    </div>
+                    <div class="col-md-6 grid-item idea" data-category="ads">
+                        <h1>3</h1>
+                    </div>
+                    <div class="col-md-4 grid-item code" data-category="books">
+                        <h1>4</h1>
+                    </div>
+                    <div class="col-md-4 grid-item ui" data-category="logos">
+                        <h1>5</h1>
+                    </div>
+                    <div class="col-md-4 grid-item ux" data-category="websites">
+                        <h1>6</h1>
+                    </div>
+                    <div class="col-md-6 grid-item idea" data-category="ads">
+                        <h1>7</h1>
+                    </div>
+                    <div class="col-md-6 grid-item code" data-category="books">
+                        <h1>8</h1>
+                    </div>
+                    <div class="col-md-6 grid-item creativity" data-category="books">
+                        <h1>9</h1>
+                    </div>
+                    <div class="col-md-2 grid-item creativity" data-category="books">
+                        <h1>10</h1>
+                    </div>
+                    <div class="col-md-2 grid-item ux" data-category="books">
+                        <h1>11</h1>
+                    </div>
+                    <div class="col-md-2 grid-item creativity" data-category="books">
+                        <h1>12</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+<script>
+    var elem = document.querySelector('.grid');
+    var iso = new Isotope(elem, {
+        // options
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows'
+    });
+
+    // // element argument can be a selector string
+    // //   for an individual element
+    // var iso = new Isotope('.grid', {
+    //     // options
+    // });
+</script>
+
+</html>
