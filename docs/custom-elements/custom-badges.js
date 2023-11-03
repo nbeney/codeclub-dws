@@ -8,6 +8,6 @@ function defineBadgeElement(tag, text, bg) {
         });
 }
 
-defineBadgeElement('badge-easy', 'Easy', 'bg-success');
-defineBadgeElement('badge-medium', 'Medium', 'bg-warning');
-defineBadgeElement('badge-hard', 'Hard', 'bg-danger');
+defineBadgeElement('cc-badge-easy', 'Easy', 'bg-success');
+defineBadgeElement('cc-badge-medium', 'Medium', 'bg-warning');
+defineBadgeElement('cc-badge-hard', 'Hard', 'bg-danger');
