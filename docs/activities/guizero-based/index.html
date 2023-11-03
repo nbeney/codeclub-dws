@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Build a GUI with Guizero</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-badges.js"></script>
 </head>
 
@@ -45,30 +46,7 @@
     NAVBAR
     ====================================================================
      -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">Code Club</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="../guizero-based/index.html">Guizero</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../pygame-zero-based/index.html">Pygame Zero</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../adventurelib-based/index.html">Adventurelib</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <cc-navbar active="guizero" level="1" />
 
     <!-- 
     ====================================================================
@@ -136,77 +114,107 @@
         <div class="grid">
             <div class="card grid-item easy">
                 <a href="ascii-art-maker/index.html"><img src="ascii-art-maker/screenshot.png" class="card-img-top" alt="ASCII Art Maker"></a>
-                <h5 class="card-body">ASCII Art Maker <badge-easy/></h5>
+                <h5 class="card-body">ASCII Art Maker
+                    <badge-easy/>
+                </h5>
             </div>
             <div class="card grid-item easy">
                 <a href="color-maker/index.html"><img src="color-maker/screenshot.png" class="card-img-top" alt="Color Maker"></a>
-                <h5 class="card-body">Color Maker <badge-easy/></h5>
+                <h5 class="card-body">Color Maker
+                    <badge-easy/>
+                </h5>
             </div>
             <div class="card grid-item easy">
                 <a href="temperature-converter/index.html"><img src="temperature-converter/screenshot.png" class="card-img-top" alt="Temperature Converter"></a>
-                <h5 class="card-body">Temperature Converter <badge-easy/></h5>
+                <h5 class="card-body">Temperature Converter
+                    <badge-easy/>
+                </h5>
             </div>
             <div class="card grid-item easy">
                 <a href="times-tables/index.html"><img src="times-tables/screenshot.png" class="card-img-top" alt="Times Tables"></a>
-                <h5 class="card-body">Times Tables <badge-easy/></h5>
+                <h5 class="card-body">Times Tables
+                    <badge-easy/>
+                </h5>
             </div>
             <div class="card grid-item medium">
                 <a href="binary-clock/index.html"><img src="binary-clock/screenshot.png" class="card-img-top" alt="Binary Clock"></a>
-                <h5 class="card-body">Binary Clock <badge-medium/></h5>
+                <h5 class="card-body">Binary Clock
+                    <badge-medium/>
+                </h5>
             </div>
             <div class="card grid-item medium">
                 <a href="caesar-cipher/index.html"><img src="caesar-cipher/screenshot.png" class="card-img-top" alt="Caesar Cipher"></a>
-                <h5 class="card-body">Caesar Cipher <badge-medium/></h5>
+                <h5 class="card-body">Caesar Cipher
+                    <badge-medium/>
+                </h5>
             </div>
             <div class="card grid-item medium">
                 <a href="french-verbs/index.html"><img src="french-verbs/screenshot.png" class="card-img-top" alt="French Verbs"></a>
-                <h5 class="card-body">French Verbs <badge-medium/></h5>
+                <h5 class="card-body">French Verbs
+                    <badge-medium/>
+                </h5>
             </div>
             <div class="card grid-item medium">
                 <a href="memory-game/index.html"><img src="memory-game/screenshot.png" class="card-img-top" alt="Memory"></a>
-                <h5 class="card-body">Memory <badge-medium/></h5>
+                <h5 class="card-body">Memory
+                    <badge-medium/>
+                </h5>
                 </span>
                 </h5>
             </div>
             <div class="card grid-item medium">
                 <a href="morse-code/index.html"><img src="morse-code/screenshot.png" class="card-img-top" alt="Morse Code"></a>
-                <h5 class="card-body">Morse Code <badge-medium/></h5>
+                <h5 class="card-body">Morse Code
+                    <badge-medium/>
+                </h5>
                 </span>
                 </h5>
             </div>
             <div class="card grid-item medium">
                 <a href="paint-tool/index.html"><img src="paint-tool/screenshot.png" class="card-img-top" alt="Paint Tool"></a>
-                <h5 class="card-body">Paint Tool <badge-medium/></h5>
+                <h5 class="card-body">Paint Tool
+                    <badge-medium/>
+                </h5>
                 </span>
                 </h5>
             </div>
             <div class="card grid-item medium">
                 <a href="spell-the-number/index.html"><img src="spell-the-number/screenshot.png" class="card-img-top" alt="Spell the Number"></a>
-                <h5 class="card-body">Spell the Number <badge-medium/></h5>
+                <h5 class="card-body">Spell the Number
+                    <badge-medium/>
+                </h5>
                 </span>
                 </h5>
             </div>
             <div class="card grid-item hard">
                 <a href="connect4/index.html"><img src="connect4/screenshot.png" class="card-img-top" alt="Connect Four"></a>
-                <h5 class="card-body">Connect Four <badge-hard/></h5>
+                <h5 class="card-body">Connect Four
+                    <badge-hard/>
+                </h5>
                 </span>
                 </h5>
             </div>
             <div class="card grid-item hard">
                 <a href="hangman-game/index.html"><img src="hangman-game/screenshot.png" class="card-img-top" alt="Hangman"></a>
-                <h5 class="card-body">Hangman <badge-hard/></h5>
+                <h5 class="card-body">Hangman
+                    <badge-hard/>
+                </h5>
                 </span>
                 </h5>
             </div>
             <div class="card grid-item hard">
                 <a href="simon-game/index.html"><img src="simon-game/screenshot.png" class="card-img-top" alt="Simon"></a>
-                <h5 class="card-body">Simon <badge-hard/></h5>
+                <h5 class="card-body">Simon
+                    <badge-hard/>
+                </h5>
                 </span>
                 </h5>
             </div>
             <div class="card grid-item hard">
                 <a href="wordle-game/index.html"><img src="wordle-game/screenshot.png" class="card-img-top" alt="Wordle"></a>
-                <h5 class="card-body">Wordle <badge-hard/></h5>
+                <h5 class="card-body">Wordle
+                    <badge-hard/>
+                </h5>
                 </span>
                 </h5>
             </div>

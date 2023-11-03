@@ -1,6 +1,6 @@
-function defineBadgeElement(name, text, bg) {
+function defineBadgeElement(tag, text, bg) {
     customElements.define(
-        name,
+        tag,
         class extends HTMLElement {
             connectedCallback() {
                 this.innerHTML = `<span class="badge ${bg}">${text}</span>`;
