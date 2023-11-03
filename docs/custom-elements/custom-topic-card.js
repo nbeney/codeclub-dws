@@ -18,6 +18,7 @@ customElements.define(
 
         attributeChangedCallback(name, oldValue, newValue) {
             if (oldValue === newValue) return;
+            // Timeout required because innerHTML is not set yet.
             setTimeout(() => {
                 this.content = this.content || this.innerHTML
                 this[name] = newValue;
