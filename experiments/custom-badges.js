@@ -1,11 +1,11 @@
 function defineBadgeElement(name, text, bg) {
-    class BadgeElement extends HTMLElement {
-        connectedCallback() {
-            this.innerHTML = `<span class="badge ${bg}">${text}</span>`;
-        }
-    }
-
-    customElements.define(name, BadgeElement);
+    customElements.define(
+        name,
+        class extends HTMLElement {
+            connectedCallback() {
+                this.innerHTML = `<span class="badge ${bg}">${text}</span>`;
+            }
+        });
 }
 
 defineBadgeElement('badge-easy', 'Easy', 'bg-success');
