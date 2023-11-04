@@ -23,7 +23,9 @@
 
     <h1>Python libraries</h1>
 
-    <p>To install all the Python libraries required for our projects, run <code>pip install requirements.txt</code>. The <strong>requirements.txt</strong> file can be found <a href="requirements.txt">here</a>.</p>
+    <p>A Python library, also known as module or package, is a collection of pieces of code (usually functions or classes) that can be reused when writing new programs.</p>
+
+    <p>Here are all the libraries that we use at Code Club:</p>
 
     <div class="accordion" id="accordionPanelsStayOpenExample">
         <cc-library name="adventurelib" description="to create text-based adventure games">
@@ -36,7 +38,7 @@
 
         <cc-library name="inflect" description="to convert numbers to words">
             <p><strong>Documentation</strong>: <a href="https://inflect.readthedocs.io/">https://inflect.readthedocs.io/</a></p>
-            <p><strong>Code sample</strong>:</p>
+            <p><strong>Code samples</strong>:</p>
             <pre>
 import inflect
 
@@ -55,11 +57,10 @@ print(number, 'is', words)
 
         <cc-library name="pyfiglet" description="to create ASCII art from text">
             <p><strong>Documentation</strong>: <a href="https://pypi.org/project/pyfiglet/">https://pypi.org/project/pyfiglet/</a> or <a href="https://www.tutorialspoint.com/ascii-art-using-python-pyfiglet-module">https://www.tutorialspoint.com/ascii-art-using-python-pyfiglet-module</a></p>
-            <p><strong>Code sample</strong>:</p>
+            <p><strong>Code samples</strong>:</p>
+            <p>List all the possible font names:</p>
             <pre>
 import pyfiglet
-
-# Get the list of fonts and sort it.
 
 font_names = sorted(pyfiglet.FigletFont.getFonts())
 print(len(font_names))
@@ -67,9 +68,10 @@ print(font_names)
 
 # Output:
 #     549
-#     ['1943____', '1row', '3-d', '3d-ascii', '3d_diagonal', '3x5', '4max', '4x4_offr', '5lineoblique', ...
-                                                                  
-# Convert text into ASCII art.
+#     ['1943____', '1row', '3-d', '3d-ascii', '3d_diagonal', '3x5', '4max', '4x4_offr', '5lineoblique', ...</pre>
+            <p>Convert a string to ASCII Art:</p>
+            <pre>
+import pyfiglet
 
 text = "Code Club!"
 font = "speed"
@@ -82,11 +84,11 @@ print(ascii_art)
 #     _  /    _  __ \  __  /_  _ \     _  /    __  /_  / / /_  __ \_  / 
 #     / /___  / /_/ / /_/ / /  __/     / /___  _  / / /_/ /_  /_/ //_/  
 #     \____/  \____/\__,_/  \___/      \____/  /_/  \__,_/ /_.___/(_)   </pre>
-        </cc-library>
+                                            </cc-library>
 
         <cc-library name="pytest" description="to write unit tests">
             <p><strong>Documentation</strong>: <a href="https://docs.pytest.org/">https://docs.pytest.org/</a></p>
-            <p><strong>Code sample</strong>:</p>
+            <p><strong>Code samples</strong>:</p>
             <pre>
 # Under construction...
 </pre>
@@ -94,7 +96,7 @@ print(ascii_art)
 
         <cc-library name="pyttsx3" description="to read text aloud">
             <p><strong>Documentation</strong>: <a href="https://pyttsx3.readthedocs.io/">https://pyttsx3.readthedocs.io/</a></p>
-            <p><strong>Code sample</strong>:</p>
+            <p><strong>Code samples</strong>:</p>
             <pre>
 import pyttsx3
 
@@ -102,13 +104,12 @@ text = "Hello you! What's up?"
 pyttsx3.speak(text)</pre>
         </cc-library>
 
-        <cc-library name="random" description="to add some randomness to your programs">
+        <cc-library name="random*" description="to add some randomness to your programs">
             <p><strong>Documentation</strong>: <a href="https://docs.python.org/3/library/random.html">https://docs.python.org/3/library/random.html</a></p>
-            <p><strong>Code sample</strong>:</p>
+            <p><strong>Code samples</strong>:</p>
+            <p>Generate 5 random integers (ints) between 1 and 10:</p>
             <pre>
 import random
-
-# Generate random integers (int).
 
 for i in range(5):
     print(random.randint(5, 10))
@@ -118,9 +119,10 @@ for i in range(5):
 #     10
 #     9
 #     7
-#     8
-        
-# Generate random floating point numbers (float).
+#     8</pre>
+            <p>Generate 5 random floating point numbers (floats) between 0.0 and 1.0:</p>
+            <pre>
+import random
 
 for i in range(5):
     print(random.random())
@@ -130,9 +132,10 @@ for i in range(5):
 #     0.7719221475578524
 #     0.8117074999965667
 #     0.3216176959290542
-#     0.8296494377175666
-    
-# Choose a random item from a list.
+#     0.8296494377175666</pre>
+            <p>Choose 5 random items from a list (with repetitions):</p>
+            <pre>
+import random
 
 fruits = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
 for i in range(5):
@@ -143,9 +146,10 @@ for i in range(5):
 #     elderberry
 #     apple
 #     elderberry
-#     grape
-    
-# Shuffle a list (in place).
+#     grape</pre>
+            <p>Shuffle a list (in place):</p>
+            <pre>
+import random
 
 vegetables = ["artichoke", "beet", "carrot", "daikon", "eggplant", "fennel"]
 print("Before:", vegetables)
@@ -157,19 +161,61 @@ print("After: ", vegetables)
 #     After:  ['eggplant', 'carrot', 'artichoke', 'beet', 'daikon', 'fennel']</pre>
         </cc-library>
 
-        <cc-library name="winsound" description="to play sounds and music notes">
+        <cc-library name="winsound*" description="to play sounds and music notes">
             <p><strong>Documentation</strong>: <a href="https://docs.python.org/3/library/winsound.html">https://docs.python.org/3/library/winsound.html</a></p>
-            <p><strong>Code sample</strong>:</p>
+            <p><strong>Code samples</strong>:</p>
             <pre>
 import winsound
 
-# Play a sound.
-
-frequency = 440  # Set Frequency To 440 Hertz
-duration_ms = 500  # Set Duration To 500 ms == 0.5 second
+frequency = 440  # 440 Hertz
+duration_ms = 500  # 500 milliseconds = 0.5 second
 winsound.Beep(frequency, duration_ms)</pre>
         </cc-library>
     </div>
+
+    <br/>
+    <p>The libraries marked with an asterisk (*) are standard Python libraries and can be used directly. For all the others, you need to include the following lines at the very top of your files:</p>
+
+    <pre>
+import sys
+sys.path.append('...')  # PATH TO BE DETERMINED!</pre>
+
+    <p>To use a library in your program, you must <code>import</code> it. There are different ways to do this. Let say you want to use the <code>App</code> class from the <code>guizero</code> library. You can choose one of:</p>
+
+    <ol>
+        <li>Import the whole library and use the <code>App</code> class with the <code>guizero.App</code> syntax:
+            <pre>
+import guizero
+
+...
+app = guizero.App(title="My app")
+...</pre>
+        </li>
+        <li>Import the whole library with an alias, let say <code>gz</code>, and use the <code>App</code> class with the <code>gz.App</code> syntax:
+            <pre>
+import guizero as gz
+
+...
+app = gz.App(title="My app")
+...</pre>
+        </li>   
+        <li>Import just what you need from the library and use the <code>App</code> class directly:
+            <pre>
+from guizero import App
+
+...
+app = App(title="My app")
+...</pre>
+        </li>
+        <li>Import everything from the library and use the <code>App</code> class directly:
+            <pre>
+from guizero import *
+
+...
+app = App(title="My app")
+...</pre>
+        </li>
+    </ol>
 
 </body>
 
