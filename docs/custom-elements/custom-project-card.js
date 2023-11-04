@@ -67,12 +67,18 @@ customElements.define(
     });
 
 onload = function() {
+    // Initialise Isotope
     let grid = $('.grid').isotope({
         // options
         itemSelector: '.grid-item',
         layoutMode: 'masonry',
     });
-    
+
+    // Layout Isotope after each image loads
+    grid.imagesLoaded().progress(function() {
+        grid.isotope('layout');
+    });
+
     let buttonGroup = $('.filters');
     buttonGroup.on('click', 'input', function(event) {
         let button = $(event.currentTarget);
