@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-library.js"></script>
+    <script src="../../custom-elements/copy-pre.js"></script>
 </head>
 
 <style>
@@ -39,7 +40,7 @@
         <cc-library name="inflect" description="to convert numbers to words">
             <p><strong>Documentation</strong>: <a href="https://inflect.readthedocs.io/">https://inflect.readthedocs.io/</a></p>
             <p><strong>Code samples</strong>:</p>
-            <pre>
+            <pre class="copy-pre">
 import inflect
 
 engine = inflect.engine()
@@ -59,7 +60,7 @@ print(number, 'is', words)
             <p><strong>Documentation</strong>: <a href="https://pypi.org/project/pyfiglet/">https://pypi.org/project/pyfiglet/</a> or <a href="https://www.tutorialspoint.com/ascii-art-using-python-pyfiglet-module">https://www.tutorialspoint.com/ascii-art-using-python-pyfiglet-module</a></p>
             <p><strong>Code samples</strong>:</p>
             <p>List all the possible font names:</p>
-            <pre>
+            <pre class="copy-pre">
 import pyfiglet
 
 font_names = sorted(pyfiglet.FigletFont.getFonts())
@@ -70,7 +71,7 @@ print(font_names)
 #     549
 #     ['1943____', '1row', '3-d', '3d-ascii', '3d_diagonal', '3x5', '4max', '4x4_offr', '5lineoblique', ...</pre>
             <p>Convert a string to ASCII Art:</p>
-            <pre>
+            <pre class="copy-pre">
 import pyfiglet
 
 text = "Code Club!"
@@ -89,7 +90,7 @@ print(ascii_art)
         <cc-library name="pytest" description="to write unit tests">
             <p><strong>Documentation</strong>: <a href="https://docs.pytest.org/">https://docs.pytest.org/</a></p>
             <p><strong>Code samples</strong>:</p>
-            <pre>
+            <pre class="copy-pre">
 # Under construction...
 </pre>
         </cc-library>
@@ -97,7 +98,7 @@ print(ascii_art)
         <cc-library name="pyttsx3" description="to read text aloud">
             <p><strong>Documentation</strong>: <a href="https://pyttsx3.readthedocs.io/">https://pyttsx3.readthedocs.io/</a></p>
             <p><strong>Code samples</strong>:</p>
-            <pre>
+            <pre class="copy-pre">
 import pyttsx3
 
 text = "Hello you! What's up?"
@@ -108,7 +109,7 @@ pyttsx3.speak(text)</pre>
             <p><strong>Documentation</strong>: <a href="https://docs.python.org/3/library/random.html">https://docs.python.org/3/library/random.html</a></p>
             <p><strong>Code samples</strong>:</p>
             <p>Generate 5 random integers (ints) between 1 and 10:</p>
-            <pre>
+            <pre class="copy-pre">
 import random
 
 for i in range(5):
@@ -121,7 +122,7 @@ for i in range(5):
 #     7
 #     8</pre>
             <p>Generate 5 random floating point numbers (floats) between 0.0 and 1.0:</p>
-            <pre>
+            <pre class="copy-pre">
 import random
 
 for i in range(5):
@@ -134,7 +135,7 @@ for i in range(5):
 #     0.3216176959290542
 #     0.8296494377175666</pre>
             <p>Choose 5 random items from a list (with repetitions):</p>
-            <pre>
+            <pre class="copy-pre">
 import random
 
 fruits = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
@@ -148,7 +149,7 @@ for i in range(5):
 #     elderberry
 #     grape</pre>
             <p>Shuffle a list (in place):</p>
-            <pre>
+            <pre class="copy-pre">
 import random
 
 vegetables = ["artichoke", "beet", "carrot", "daikon", "eggplant", "fennel"]
@@ -164,7 +165,7 @@ print("After: ", vegetables)
         <cc-library name="winsound*" description="to play sounds and music notes">
             <p><strong>Documentation</strong>: <a href="https://docs.python.org/3/library/winsound.html">https://docs.python.org/3/library/winsound.html</a></p>
             <p><strong>Code samples</strong>:</p>
-            <pre>
+            <pre class="copy-pre">
 import winsound
 
 frequency = 440  # 440 Hertz
@@ -176,7 +177,7 @@ winsound.Beep(frequency, duration_ms)</pre>
     <br/>
     <p>The libraries marked with an asterisk (*) are standard Python libraries and can be used directly. For all the others, you need to include the following lines at the very top of your files:</p>
 
-    <pre>
+    <pre class="copy-pre">
 import sys
 sys.path.append('...')  # PATH TO BE DETERMINED!</pre>
 
@@ -184,7 +185,7 @@ sys.path.append('...')  # PATH TO BE DETERMINED!</pre>
 
     <ol>
         <li>Import the whole library and use the <code>App</code> class with the <code>guizero.App</code> syntax:
-            <pre>
+            <pre class="copy-pre">
 import guizero
 
 ...
@@ -192,7 +193,7 @@ app = guizero.App(title="My app")
 ...</pre>
         </li>
         <li>Import the whole library with an alias, let say <code>gz</code>, and use the <code>App</code> class with the <code>gz.App</code> syntax:
-            <pre>
+            <pre class="copy-pre">
 import guizero as gz
 
 ...
@@ -200,7 +201,7 @@ app = gz.App(title="My app")
 ...</pre>
         </li>   
         <li>Import just what you need from the library and use the <code>App</code> class directly:
-            <pre>
+            <pre class="copy-pre">
 from guizero import App
 
 ...
@@ -208,7 +209,7 @@ app = App(title="My app")
 ...</pre>
         </li>
         <li>Import everything from the library and use the <code>App</code> class directly:
-            <pre>
+            <pre class="copy-pre">
 from guizero import *
 
 ...
