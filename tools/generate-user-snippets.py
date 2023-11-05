@@ -1,6 +1,6 @@
 """
 Utility script to generate user snippets for VS Code for our custom HTML elements.
-The output can be loaed using File / Preferences / Configure User Snippets.
+The output can be loaded using File / Preferences / Configure User Snippets.
 """
 
 
