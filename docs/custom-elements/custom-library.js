@@ -5,11 +5,11 @@ function libraryAccordionItem(name, description, content) {
 
     return `
         <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-heading${libraryCounter}">
+            <h3 class="accordion-header" id="panelsStayOpen-heading${libraryCounter}">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse${libraryCounter}" aria-expanded="false" aria-controls="panelsStayOpen-collapse${libraryCounter}">
                 <strong class="text-primary">${name}</strong>&nbsp;- ${description}
             </button>
-            </h2>
+            </h3>
             <div id="panelsStayOpen-collapse${libraryCounter}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading${libraryCounter}">
                 <div class="accordion-body">
                     ${content}
