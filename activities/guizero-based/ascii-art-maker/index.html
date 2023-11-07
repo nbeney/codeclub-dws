@@ -50,13 +50,13 @@
                         the text and the font as arguments to get the result. Put the result in the output field.
                         <details>
                             <summary>Hint</summary>
-                            <pre class="copy-pre">
+                            <cc-code-block>
 # Callback function for when the text or font changes.
 def on_change():
     text = input_text.value
     font = font_combo.value
     output_text.value = pf.figlet_format(text, font)
-                            </pre>
+                            </cc-code-block>
                         </details>
                     </li>
                     <li>
@@ -64,20 +64,20 @@ def on_change():
                         to get the new color.
                         <details>
                             <summary>Hint</summary>
-                            <pre class="copy-pre">
+                            <cc-code-block>
 # Callback function for when the color button is clicked.
 def on_color():
     color = app.select_color(color=output_text.text_color)
     if color:
         output_text.text_color = color
-                            </pre>
+                            </cc-code-block>
                         </details>
                     </li>
                     <li>
                         Implement the callback function for when the surprise button is clicked. Call the <code>app.select_color</code> function.
                         <details>
                             <summary>Hint</summary>
-                            <pre class="copy-pre">
+                            <cc-code-block>
 import random
 
 ...
@@ -87,7 +87,7 @@ def on_surprise():
     font = random.choice(font_combo.options)
     font_combo.value = font
     on_change()
-                            </pre>
+                            </cc-code-block>
                         </details>
                     </li>
                 </ul>

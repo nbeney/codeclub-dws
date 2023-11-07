@@ -64,3 +64,14 @@ function addStyle() {
     // Append the style element to the document's head
     document.head.appendChild(styleElement);
 }
+
+customElements.define(
+    'cc-code-block',
+    class extends HTMLElement {
+        connectedCallback() {
+            setTimeout(() => {
+                this.innerHTML = `<pre class="copy-pre">${this.innerHTML.trim()}</pre>`;
+            });
+        }
+    }
+);

@@ -31,6 +31,7 @@ def get_tags():
         "cc-project-card",
         "cc-project-filters",
         "cc-topic-card",
+        "cc-code-block",
     ]
 
 
@@ -109,6 +110,13 @@ def handle_cc_topic_card(tag):
     if not tag.startswith("cc-topic-card"):
         return
     body = f'<cc-topic-card path=\\"$1\\" title=\\"$2\\">$0</cc-topic-card>'
+    print_snippet(tag, tag, body, tag)
+
+
+def handle_cc_code_block(tag):
+    if not tag.startswith("cc-code-block"):
+        return
+    body = f'<cc-code-block>$0</cc-code-block>'
     print_snippet(tag, tag, body, tag)
 
 
