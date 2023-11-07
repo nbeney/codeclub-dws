@@ -9,6 +9,7 @@
     <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-badges.js"></script>
     <script src="../../custom-elements/custom-project-card.js"></script>
+    <script src="../../custom-elements/copy-pre.js"></script>
     <link rel="stylesheet" href="../../style.css">
 </head>
 
@@ -19,8 +20,46 @@
 
     <section>
         <h2>Read this first</h2>
+
+        <p><code>Pygame Zero</code> is a <a href="../python-libraries/index.html">Python library</a> for creating simple video games.</p>
+
+        <p>First check that <code>pgzero</code> is installed on your PC by running this program. Don't worry if you don't understand how it works yet. You will soon learn what all these instructions mean.</p>
+
+        <cc-code-block>
+import sys
+sys.path.append('...')  # PATH TO BE DETERMINED!
+
+import pgzrun
+
+WIDTH = 400
+HEIGHT = 300
+
+angle = 0
+direction = 0.25
+
+def draw():
+    screen.fill("firebrick")
+    screen.draw.text("Welcome to\nPygame Zero!", center=(WIDTH / 2, HEIGHT / 2), fontsize=48, angle=angle)
+
+def update():
+    global angle
+    angle += direction
+
+def on_mouse_down():
+    global direction
+    direction *= -1
+
+pgzrun.go()
+        </cc-code-block>
+
+        <p>If all is well, you will see a window like this with the text spinning around:</p>
+
+        <p><img src="./screenshot.png" alt="Screenshot"></p>
+
+        <p>Try clicking the mouse and see what happens.</p>
+
+        <p>Then read these 2 pages to learn the basics.</p>
         <ul>
-            <li><a href="https://pygame-zero.readthedocs.io/en/stable/ide-mode.html">Running Pygame Zero in IDLE and other IDEs</a></li>
             <li><a href="https://pygame-zero.readthedocs.io/en/stable/introduction.html">Introduction to Pygame Zero</a></li>
             <li><a href="https://pygame-zero.readthedocs.io/en/stable/from-scratch.html">Migrating from Scratch</a></li>
         </ul>

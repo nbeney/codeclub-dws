@@ -9,6 +9,7 @@
     <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-badges.js"></script>
     <script src="../../custom-elements/custom-project-card.js"></script>
+    <script src="../../custom-elements/copy-pre.js"></script>
     <link rel="stylesheet" href="../../style.css">
 </head>
 
@@ -19,9 +20,82 @@
 
     <section>
         <h2>Read this first</h2>
-        <ul>
-            <li><a href="https://adventurelib.readthedocs.io/en/stable/intro.html">Introduction</a></li>
-        </ul>
+
+        <p><code>Adventurelib</code> is a <a href="../python-libraries/index.html">Python library</a> for creating text-based adventure games.</p>
+
+        <p>First check that <code>adventurelib</code> is installed on your PC by running this program. If all is ok, the program will print OK, otherwise you will see an error message.</p>
+
+        <cc-code-block>
+import sys
+sys.path.append('...')  # PATH TO BE DETERMINED!
+
+from adventurelib import when, start, Bag, Item
+
+bag = Bag()
+
+@when("pick THING")
+def pick(thing):
+    bag.add(Item(thing))
+    print(f"You have {len(bag)} items in your bag now.")
+
+@when("check")
+def check_bag():
+    if len(bag) == 0:
+        print(f"Your bag is empty!")
+    else:
+        print(f"You have {', '.join(str(item) for item in bag)}")
+
+@when("throw THING")
+def throw(thing):
+    if thing in bag:
+        bag.take(thing)
+        if len(bag) == 0:
+            print(f"Your bag is empty now!")
+        else:
+            print(f"You have {len(bag)} items left in your bag.")
+    else:
+        print(f"Sorry, you have no {thing} in your bag!")
+
+start()
+        </cc-code-block>
+
+        <p>An interaction with the program could look like this:</p>
+
+        <cc-code-block>
+> go north
+I don't understand 'go north'.
+
+> help
+Here is a list of the commands you can give:
+?
+check
+help
+pick THING
+quit
+throw THING
+
+> pick apple
+You have 1 items in your bag now.
+
+> pick banana
+You have 2 items in your bag now.
+
+> check
+You have apple, banana
+
+> throw apple
+You have 1 items left in your bag.
+
+> throw egg
+Sorry, you have no egg in your bag!
+
+> check
+You have banana
+
+> quit
+        </cc-code-block>
+
+        <p>Then you should read this <a href="https://adventurelib.readthedocs.io/en/stable/intro.html">introduction</a> to learn the basics.</p>
     </section>
 
     <section>

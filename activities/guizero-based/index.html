@@ -9,6 +9,7 @@
     <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-badges.js"></script>
     <script src="../../custom-elements/custom-project-card.js"></script>
+    <script src="../../custom-elements/copy-pre.js"></script>
     <link rel="stylesheet" href="../../style.css">
 </head>
 
@@ -19,11 +20,49 @@
 
     <section>
         <h2>Read this first</h2>
-        <ul>
-            <li><a href="https://projects.raspberrypi.org/en/projects/getting-started-with-guis">Getting started with GUIs</a></li>
-            <li><a href="../../offline/guizero-workshop.pdf">Guizero Workshop</a></li>
-            <li><a href="../../offline/000_guizero_DIGITAL.pdf">Create Graphical User Interfaces with Python (PDF)</a></li>
-        </ul>
+
+        <p><code>Guizero</code> is a <a href="../python-libraries/index.html">Python library</a> for creating simple GUIs.</p>
+
+        <p>First check that <code>guizero</code> is installed on your PC by running this program. Don't worry if you don't understand how it works yet. You will soon learn what all these instructions mean.</p>
+
+        <cc-code-block>
+import sys
+sys.path.append('...')  # PATH TO BE DETERMINED!
+
+from guizero import App, Text, PushButton, Slider, Combo
+
+count = 0
+
+def on_click_button():
+    global count
+    count += 1
+    message.value = f"You clicked {count} times"
+
+def on_move_slider(value):
+    message.text_size = value
+
+def on_change_combo(value):
+    message.text_color = value
+
+app = App(title="Welcome to Guizero", width=400, height=200)
+
+message = Text(app, text="You haven't clicked yet", color="red")
+button = PushButton(app, text="Click me!", command=on_click_button)
+slider = Slider(app, start=12, end=64, command=on_move_slider)
+combo = Combo(app, options=["red", "green", "blue"], command=on_change_combo)
+
+app.display()
+        </cc-code-block>
+
+        <p>If all is well, you will see a window like this:</p>
+
+        <p><img src="./screenshot.png" alt="Screenshot"></p>
+        
+        <p>Try clicking the button, moving the slider or choosing a different color and see what happens.</p>
+
+        <p>Then you should follow the <a href="https://projects.raspberrypi.org/en/projects/getting-started-with-guis">Getting started with GUIs</a> tutorial or the <a href="../../offline/guizero-workshop.pdf">Guizero Workshop</a> tutorial to learn the basics.</p>
+
+        <p>The <a href="../../offline/000_guizero_DIGITAL.pdf">Create Graphical User Interfaces with Python (PDF)</a> book contains a good introduction and has several projects like Wanted Poster,  Spy Name Chooser, Meme Generator, Tic-tac-toe, Destroy the Dots, Flood It, Emoji Match, Paint, and more.</p>
     </section>
 
     <section>
