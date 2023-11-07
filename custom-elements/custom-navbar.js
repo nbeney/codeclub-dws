@@ -1,4 +1,4 @@
-function navbar(active, level) {
+function navbar(active, level, style) {
     let activeHome = (active === 'home') ? 'active' : '';
     let activeGuizero = (active === 'guizero') ? 'active' : '';
     let activePygameZero = (active === 'pygame-zero') ? 'active' : '';
@@ -8,7 +8,7 @@ function navbar(active, level) {
     let pathPrefix = (level === '0') ? './' : '../'.repeat(level);
 
     return `
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg ${style}">
             <div class="container-fluid">
                 <a class="navbar-brand" href="${pathPrefix}index.html">Code Club</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,9 @@ function defineNavbarElement(tag, active) {
 
             attributeChangedCallback(name, oldValue, newValue) {
                 this[name] = newValue;
-                this.innerHTML = navbar(this.active, this.level);
+                // this.innerHTML = navbar(this.active, this.level, 'navbar-dark bg-secondary');
+                // this.innerHTML = navbar(this.active, this.level, 'navbar-dark bg-dark');
+                this.innerHTML = navbar(this.active, this.level, 'navbar-dark bg-primary');
             }
         });
 }

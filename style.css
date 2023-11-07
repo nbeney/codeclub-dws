@@ -18,7 +18,9 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@600&display=swap'); */
 
-@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@600&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Luckiest Guy:wght@400&display=swap');
 
 /* @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant:wght@600&display=swap'); */
 
@@ -31,8 +33,17 @@ h2 {
     /* font-family: 'Jost', cursive; */
     /* font-family: 'Exo 2', cursive; */
     /* font-family: 'MuseoModerno', cursive; */
-    font-family: 'Shantell Sans', cursive;
+    /* font-family: 'Shantell Sans', cursive; */
+    font-family: 'Luckiest Guy', cursive;
     /* font-family: 'Ysabeau Infant', cursive; */
+}
+
+h1 {
+    margin-top: 1em;
+}
+
+h2 {
+    margin-top: 1em;
 }
 
 pre {
