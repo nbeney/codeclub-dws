@@ -18,6 +18,7 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@600&display=swap'); */
 
+
 /* @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@600&display=swap'); */
 
 @import url('https://fonts.googleapis.com/css2?family=Luckiest Guy:wght@400&display=swap');
@@ -56,4 +57,12 @@ code a {
     color: red;
     font-weight: bold;
     text-decoration: none;
+}
+
+.nav-item a.active:before {
+    content: "\25D6";    /* left half circle */
+}
+
+.nav-item a.active:after {
+    content: "\25D7";    /* right half circle */
 }
