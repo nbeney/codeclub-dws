@@ -66,7 +66,7 @@ customElements.define(
         }
     });
 
-onload = function() {
+window.addEventListener('load', function() {
     // Initialise Isotope
     let grid = $('.grid').isotope({
         // options
@@ -87,4 +87,4 @@ onload = function() {
             filter: filterValue
         });
     });
-}
+});

@@ -5,11 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Build an adventure game with Adventurelib</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-badges.js"></script>
     <script src="../../custom-elements/custom-project-card.js"></script>
-    <script src="../../custom-elements/copy-pre.js"></script>
+    <script type="module" src="../../custom-elements/custom-code-block.js"></script>
     <link rel="stylesheet" href="../../style.css">
 </head>
 
@@ -26,18 +25,20 @@
         <p>First check that <code>adventurelib</code> is installed on your PC by running this program. If all is ok, the program will print OK, otherwise you will see an error message.</p>
 
         <cc-code-block>
+# Add the folder containing the adventurelib library to the Python path. Only required in some schools.
 import sys
 sys.path.append('...')  # PATH TO BE DETERMINED!
 
+# Import what we need from the adventurelib library.
 from adventurelib import when, start, Bag, Item
 
-bag = Bag()
-
+# Define the action to pick an object and add it to the bag.
 @when("pick THING")
 def pick(thing):
     bag.add(Item(thing))
     print(f"You have {len(bag)} items in your bag now.")
 
+# Define the action to check what is in the bag.
 @when("check")
 def check_bag():
     if len(bag) == 0:
@@ -45,6 +46,7 @@ def check_bag():
     else:
         print(f"You have {', '.join(str(item) for item in bag)}")
 
+# Define the action to take an object from the bag and throw it.
 @when("throw THING")
 def throw(thing):
     if thing in bag:
@@ -56,14 +58,19 @@ def throw(thing):
     else:
         print(f"Sorry, you have no {thing} in your bag!")
 
-start()
+if __name__ == "__main__":
+    # Initialize some variables.
+    bag = Bag()
+
+    # Start the event loop. This should be the last line of your program.
+    start()
         </cc-code-block>
 
         <p>An interaction with the program could look like this:</p>
 
-        <cc-code-block>
-> go north
-I don't understand 'go north'.
+        <pre>
+> look around
+I don't understand 'look around'.
 
 > help
 Here is a list of the commands you can give:
@@ -74,6 +81,9 @@ pick THING
 quit
 throw THING
 
+> check
+Your bag is empty!
+
 > pick apple
 You have 1 items in your bag now.
 
@@ -81,19 +91,19 @@ You have 1 items in your bag now.
 You have 2 items in your bag now.
 
 > check
-You have apple, banana
+You have banana, apple
 
 > throw apple
 You have 1 items left in your bag.
 
-> throw egg
-Sorry, you have no egg in your bag!
+> throw tomato
+Sorry, you have no tomato in your bag!
 
 > check
 You have banana
 
 > quit
-        </cc-code-block>
+        </pre>
 
         <p>Then you should read this <a href="https://adventurelib.readthedocs.io/en/stable/intro.html">introduction</a> to learn the basics.</p>
     </section>

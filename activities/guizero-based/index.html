@@ -5,11 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Build a GUI with Guizero</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-badges.js"></script>
     <script src="../../custom-elements/custom-project-card.js"></script>
-    <script src="../../custom-elements/copy-pre.js"></script>
+    <script type="module" src="../../custom-elements/custom-code-block.js"></script>
     <link rel="stylesheet" href="../../style.css">
 </head>
 
@@ -21,37 +20,50 @@
     <section>
         <h2>Read this first</h2>
 
-        <p><code>Guizero</code> is a <a href="../python-libraries/index.html">Python library</a> for creating simple GUIs.</p>
+        <p><code>Guizero</code> is a <a href="../python-libraries/index.html">Python library</a> for creating simple graphical user interfaces (GUIs).</p>
 
         <p>First check that <code>guizero</code> is installed on your PC by running this program. Don't worry if you don't understand how it works yet. You will soon learn what all these instructions mean.</p>
 
         <cc-code-block>
+# Add the folder containing the guizero library to the Python path. Only required in some schools.
 import sys
-sys.path.append('...')  # PATH TO BE DETERMINED!
+sys.path.append("...")  # PATH TO BE DETERMINED!
 
+# Import the widgets we need from the guizero library.
 from guizero import App, Text, PushButton, Slider, Combo
 
-count = 0
-
+# Callback function for when the button is clicked.
 def on_click_button():
-    global count
-    count += 1
-    message.value = f"You clicked {count} times"
+    global click_count
+    click_count += 1
+    message.value = f"You clicked {click_count} times"
 
+# Callback function for when the slider is moved.
 def on_move_slider(value):
     message.text_size = value
 
+# Callback function for when the combo box is changed.
 def on_change_combo(value):
     message.text_color = value
+    combo.bg = value
+    combo.text_color = "white" if value == "blue" else "black"
 
-app = App(title="Welcome to Guizero", width=400, height=200)
+if __name__ == "__main__":
+    # Initialize some variables.
+    click_count = 0
 
-message = Text(app, text="You haven't clicked yet", color="red")
-button = PushButton(app, text="Click me!", command=on_click_button)
-slider = Slider(app, start=12, end=64, command=on_move_slider)
-combo = Combo(app, options=["red", "green", "blue"], command=on_change_combo)
+    # Create the main window.
+    app = App(title="Welcome to Guizero", width=400, height=200, bg="#b9f2ff")
 
-app.display()
+    # Add some widgets to the main window.
+    message = Text(app, text="You haven't clicked yet", color="red")
+    button = PushButton(app, text="Click me!", command=on_click_button)
+    slider = Slider(app, start=12, end=64, command=on_move_slider)
+    combo = Combo(app, options=["red", "green", "blue"], command=on_change_combo)
+    combo.bg = "red"
+
+    # Start the event loop. This should be the last line of your program.
+    app.display()
         </cc-code-block>
 
         <p>If all is well, you will see a window like this:</p>
