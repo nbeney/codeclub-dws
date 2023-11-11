@@ -1,29 +1,20 @@
 import os
 import zipfile as zf
+from pathlib import Path
 
 
 def zipdir(path, ziph):
-    # ziph is zipfile handle
     for root, dirs, files in os.walk(path):
-        # print("root:", root)
-        # print("dirs:", dirs)
-        # print("files:", files)
-        # print()
         for file in files:
-            print("Add file:", os.path.join(root, file))
-            ziph.write(os.path.join(root, file))
-
-
-# with zf.ZipFile("./test.zip", "w", zf.ZIP_DEFLATED) as ziph:
-#     zipdir("./activities/python-libraries", ziph)
-
-
-def find_solution_dirs():
-    for root, dirs, files in os.walk("./activities"):
-        if root.endswith("\\solution"):
-            yield root
+            path = Path(root, file)
+            arc = Path("resources", file)
+            ziph.write(path, arcname=arc)
 
 
 if __name__ == "__main__":
-    for dir_ in find_solution_dirs():
-        print(dir_)
+    for solution_dir in Path("./activities").glob("**/solution"):
+        zip_file = solution_dir.parent.joinpath("resources.zip")
+        resources_dir = solution_dir.joinpath("resources")
+        print(resources_dir, "===>", zip_file)
+        with zf.ZipFile(zip_file, "w", zf.ZIP_DEFLATED) as ziph:
+            zipdir(resources_dir, ziph)
