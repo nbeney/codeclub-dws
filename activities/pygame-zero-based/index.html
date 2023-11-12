@@ -43,7 +43,7 @@ text_pos = (WIDTH / 2, HEIGHT / 2)
 # Callback function to redraw the screen.
 def draw():
     screen.fill("forestgreen")
-    screen.draw.text("Welcome to\nPygame Zero!", center=text_pos, fontsize=48, angle=text_angle)
+    screen.draw.text("Welcome to\nPygame Zero!", center=text_pos, fontsize=48, angle=text_angle, color="red", ocolor="white", owidth=2)
 
 # Callback function to update the game. It is called at every frame.
 def update():
