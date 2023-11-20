@@ -50,21 +50,34 @@ Contains the list of the Python packages to download from [PyPI](https://pypi.or
 For example:
 
 ```
+# A package to develop text-based games.
+# Doc: https://adventurelib.readthedocs.io/
 adventurelib
-colorama
-emoticon
-fastapi
-flask
-guizero
-mediapipe
-networkzero
-pandas
+
+# A package to develop GUI apps and games.
+# Doc: https://lawsie.github.io/guizero/
+guizero[images]
+
+# A package to convert numbers to words and much more.
+# Doc: https://inflect.readthedocs.io/
+inflect
+
+# A package to develop GUI games (wrapper for PyGame).
+# Doc: https://pygame-zero.readthedocs.io/
 pgzero
-printy
+
+# A package to render text in ASCII art fonts.
+# Doc: https://pypi.org/project/pyfiglet/
+# Doc: https://www.tutorialspoint.com/ascii-art-using-python-pyfiglet-module
 pyfiglet
+
+# A package to write unit tests.
+# Doc: https://docs.pytest.org/
+pytest
+
+# A package to convert text to speech.
+# Doc: https://pyttsx3.readthedocs.io/
 pyttsx3
-sympy
-z3-solver
 ```
 
 It is possible to specify a version (exact, minimum, etc) for each package but we do not need this for now. 
@@ -86,21 +99,21 @@ Rerunning the script will upgrade the existing packages and download the additio
 Contains the downloaded Python packages as specified in `requirements.txt` (including their dependencies). Managed by `download.bat`/`download.sh`.
 
 ```bash
-$ tree ./python-packages -d -L 1
-./python-packages
-├── Flask-2.3.2.dist-info
-├── Jinja2-3.1.2.dist-info
-├── MarkupSafe-2.1.3.dist-info
-├── PIL
-├── Pillow-10.0.0.dist-info
+$ tree python-packages/ -d -L 1
+python-packages/
+|-- PIL
+|-- Pillow-10.1.0.dist-info
+|-- __pycache__
+|-- _pytest
+|-- adodbapi
 ...
-├── tzdata-2023.3.dist-info
-├── werkzeug
-├── z3
-├── z3_solver-4.12.2.0.dist-info
-└── zmq
+|-- tomli-2.0.1.dist-info
+|-- typing_extensions-4.8.0.dist-info
+|-- win32
+|-- win32com
+`-- win32comext
 
-122 directories
+54 directories
 ```
 
 This folder must be accessible (read-only) by all the students attending CodeClub. This could be through:
