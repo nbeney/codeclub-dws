@@ -1,3 +1,14 @@
+"""
+Utility script to generate the ZIP archives for each activity.
+
+There are 3 types of archives:
+- resources.zip: contains only the resources (eg images, data files, etc)
+- solution.zip: contains the resources and the full code 
+- starter-kit.zip: contains the resources and the code template
+
+The code template is the same as the full code, but with the student's code removed and replaced with a TODO comment.
+"""
+
 import os
 import zipfile as zf
 from pathlib import Path
@@ -10,8 +21,8 @@ class Mode(Enum):
     SANITIZE = 3
 
 
-START_MARKER = "# CC:>>>>>>>>>>"
-STOP_MARKER = "# CC:<<<<<<<<<<"
+START_MARKER = "# CC:>>>>>"
+STOP_MARKER = "# CC:<<<<<"
 
 
 def filter_python_file(source_file, mode):
@@ -30,9 +41,9 @@ def filter_python_file(source_file, mode):
                     if line.strip().startswith(START_MARKER):
                         indent = " " * (len(line) - len(line.lstrip()))
                         if indent:
-                            result.append(f"{indent}pass  # ADD YOUR CODE HERE")
+                            result.append(f"{indent}pass  # TODO: ADD YOUR CODE HERE")
                         else:
-                            result.append(f"# ADD YOUR CODE HERE")
+                            result.append(f"# TODO: ADD YOUR CODE HERE")
                         ignore = True
                     elif line.strip().startswith(STOP_MARKER):
                         ignore = False

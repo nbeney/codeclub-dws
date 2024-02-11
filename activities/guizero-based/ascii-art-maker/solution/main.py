@@ -14,23 +14,30 @@ FONT_NAMES = sorted(pf.FigletFont.getFonts())
 
 # Callback function for when the text or font changes.
 def on_change():
+    # CC:>>>>>
     text = input_text.value
     font = font_combo.value
-    output_text.value = pf.figlet_format(text, font)
+    art = pf.figlet_format(text, font)
+    output_text.value = art
+    # CC:<<<<<
 
 
 # Callback function for when the color button is clicked.
 def on_color():
+    # CC:>>>>>
     color = app.select_color(color=output_text.text_color)
     if color:
         output_text.text_color = color
+    # CC:<<<<<
 
 
 # Callback function for when the surprise button is clicked.
 def on_surprise():
+    # CC:>>>>>
     font = random.choice(font_combo.options)
     font_combo.value = font
     on_change()
+    # CC:<<<<<
 
 
 if __name__ == "__main__":
@@ -43,26 +50,47 @@ if __name__ == "__main__":
     Text(app)  # spacer
 
     box = Box(app)
-    input_text = TextBox(
-        box, align="left", text="Hello World!", width="60", command=on_change)
 
-    font_combo = Combo(box, align="left",
-                       options=FONT_NAMES, command=on_change)
-    Text(box, align="left", text="  ")  # spacer
+    input_text = TextBox(
+        box, align="left", text="Hello World!", width="60", command=on_change
+    )
+
+    font_combo = Combo(box, align="left", options=FONT_NAMES, command=on_change)
     font_combo.value = "speed"
 
     Text(box, align="left", text="  ")  # spacer
+
     PushButton(
-        box, align="left", text="", image=IMAGE_COLORS,
-        width=32, height=32, command=on_color)
+        box,
+        align="left",
+        text="",
+        image=IMAGE_COLORS,
+        width=32,
+        height=32,
+        command=on_color,
+    )
+
     PushButton(
-        box, align="left", text="", image=IMAGE_SURPRISE, width=32, height=32, command=on_surprise)
+        box,
+        align="left",
+        text="",
+        image=IMAGE_SURPRISE,
+        width=32,
+        height=32,
+        command=on_surprise,
+    )
 
     Text(app)  # spacer
 
     output_text = TextBox(
-        app, text="", width="fill", height="fill",
-        multiline=True, scrollbar=True, enabled=False)
+        app,
+        text="",
+        width="fill",
+        height="fill",
+        multiline=True,
+        scrollbar=True,
+        enabled=False,
+    )
     output_text.text_color = "red"
 
     on_change()
