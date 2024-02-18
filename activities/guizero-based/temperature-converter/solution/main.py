@@ -4,10 +4,13 @@ from resources import path_for
 IMAGE_LOGO = path_for("thermometer.png")
 
 
+# Callback function for when the Celsius text changes.
 def on_change_celsius():
     try:
+        # CC:>>>>>
         celsius = float(textbox_celsius.value)
         textbox_farenheit.value = celsius_to_farenheit(celsius)
+        # CC:<<<<<
         textbox_celsius.bg = "white"
         textbox_farenheit.bg = "white"
     except ValueError:
@@ -16,10 +19,13 @@ def on_change_celsius():
         textbox_farenheit.bg = "pink"
 
 
+# Callback function for when the Farenheit text changes.
 def on_change_farenheit():
     try:
+        # CC:>>>>>
         farenheit = float(textbox_farenheit.value)
         textbox_celsius.value = farenheit_to_celsius(farenheit)
+        # CC:<<<<<
         textbox_celsius.bg = "white"
         textbox_farenheit.bg = "white"
     except ValueError:
@@ -28,12 +34,18 @@ def on_change_farenheit():
         textbox_farenheit.bg = "pink"
 
 
+# Function to convert from Celsius to Farenheit.
 def celsius_to_farenheit(celsius):
+    # CC:>>>>>
     return (celsius * 9 / 5) + 32
+    # CC:<<<<<<
 
 
+# Function to convert from Farenheit to Celsius.
 def farenheit_to_celsius(farenheit):
+    # CC:>>>>>
     return (farenheit - 32) * 5 / 9
+    # CC:<<<<<
 
 
 if __name__ == "__main__":
