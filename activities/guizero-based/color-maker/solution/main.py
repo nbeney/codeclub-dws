@@ -30,24 +30,37 @@ def mix_colors():
 
 
 def on_change_red(slider_value):
+    # CC:>>>>>
     r = int(slider_value)
     red_slider.bg = (r, 0, 0)
     red_slider.text_color = "white" if r < 180 else "black"
     mix_colors()
+    # CC:<<<<<
 
 
 def on_change_green(slider_value):
+    # CC:>>>>>
     g = int(slider_value)
     green_slider.bg = (0, g, 0)
     green_slider.text_color = "white" if g < 180 else "black"
     mix_colors()
+    # CC:<<<<<
 
 
 def on_change_blue(slider_value):
+    # CC:>>>>>
     b = int(slider_value)
     blue_slider.bg = (0, 0, b)
     blue_slider.text_color = "white"
     mix_colors()
+    # CC:<<<<<
+
+
+def on_random():
+    from random import randint
+    red_slider.value = randint(0, 255)
+    green_slider.value = randint(0, 255)
+    blue_slider.value = randint(0, 255)
 
 
 if __name__ == "__main__":
@@ -70,6 +83,10 @@ if __name__ == "__main__":
 
     blue_slider = Slider(app, start=0, end=255, width=400, command=on_change_blue)
     blue_slider.value = 255
+
+    Text(app)  # spacer
+
+    PushButton(app, text="Random", command=on_random)
 
     Text(app)  # spacer
 
