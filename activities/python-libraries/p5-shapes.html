@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python libraries</title>
+    <script src="../../custom-elements/custom-navbar.js"></script>
+    <script src="../../custom-elements/custom-library.js"></script>
+    <script type="module" src="../../custom-elements/custom-code-block.js"></script>
+    <link rel="stylesheet" href="../../style.css">
+    </head>
+
+<body class="container">
+    <cc-navbar active="python-libraries" level="2" />
+
+    <h1>P5 library - Coordinates &amp; shapes</h1>
+
+    <h2>Coordinates</h2> 
+    
+    <section>
+        <p>Use <code>size(<em>width</em>, <em>height</em>)</code> to set the width and the height of the canvas.</p>
+        <p>The x-axis goes from left to right but the <strong>y-axis goes from top to bottom</strong>.</p>
+        <p>There are two predefined variables to get the canvas dimensions: <code>width</code> and <code>height</code>. Generally you should use these variables to calculate coordinates instead of using hard-coded numbers because it will make it easier to read and understand your code. Also your code should continue working when the canvas is resized. For example, if the canvas is 300 by 200:</p>
+        <ul>
+            <li>use <code>width/2, height/2</code> instead of of <code>150, 100</code> for the center</li>
+            <li>use <code>width, 0</code> instead of of <code>300, 0</code> for the top-right corner</li>
+            <li>use <code>0, height</code> instead of of <code>0, 200</code> for the bottom-left corner</li>
+            <li>use <code>width, height</code> instead of of <code>300, 200</code> for the bottom-right corner</li>
+        </ul>
+        <p>For example <code>size(8, 8)</code> makes the canvas 8 pixels wide and 8 pixels high.</p>
+        <img src="p5-images/p5-coordinates.png" alt="coordinates">
+    </section>
+
+    <h2>Point</h2>
+
+    <section>
+        <p>Use <code>point(<em>x</em>, <em>y</em>)</code> to draw a single point at coordinates (x, y).</p>        
+        <p></p>For example <code>point(3, 5)</code> will draw this:</p>
+        <img src="p5-images/p5-point.png" alt="point">
+    </section>
+
+    <h2>Line</h2>
+
+    <section>
+        <p>Use <code>line(<em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>)</code> to draw a line between coordinates (x1, y1) and (x2, y2).</p>
+        <p>For example <code>line(2, 6, 5, 1)</code> will draw this:</p>
+        <img src="p5-images/p5-line.png" alt="line">
+    </section>
+
+    <h2>Triangle</h2>
+
+    <section>
+        <p>Use <code>triangle(<em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>x3</em>, <em>y3</em>)</code> to draw a triangle between coordinates (x1, y1), (x2, y2), and (x3, y3).</p>
+        <p>For example <code>triangle(2, 3, 5, 1, 4, 6)</code> will draw this:</p>
+        <img src="p5-images/p5-triangle.png" alt="triangle">
+    </section>
+
+    <h2>Quad</h2>
+
+    <section>
+        <p>Use <code>quad(<em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>x3</em>, <em>y3</em>, <em>x4</em>, <em>y4</em>)</code> to draw a quadrilateral between coordinates (x1, y1), (x2, y2), (x3, y3), and (x4, y4).</p>
+        <p>For example <code>quad(1, 6, 2, 2, 5, 1, 6, 5)</code> will draw this:</p>
+        <img src="p5-images/p5-quad.png" alt="quad">
+    </section>
+
+    <h2>Rect</h2>
+
+    <section>
+        <p>To draw a rectangle specified by its <strong>top-left corner and dimensions</strong>, use <code>rect_mode(CORNER)</code> and <code>rect(<em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>)</code>.</p>
+        <p>For example the following code will draw this:</p>
+        <cc-code-block>
+rect_mode(CORNER)
+rect(1, 1, 2, 4)
+        </cc-code-block>
+        <img src="p5-images/p5-rect-CORNER.png" alt="rect-CORNER">
+
+        <p>To draw a rectangle specified by its <strong>center and dimensions</strong>, use <code>rect_mode(CENTER)</code> and <code>rect(<em>cx</em>, <em>cy</em>, <em>width</em>, <em>height</em>)</code>.</p>
+        <p>For example the following code will draw this:</p>
+        <cc-code-block>
+rect_mode(CENTER)
+rect(2, 3, 2, 4)
+        </cc-code-block>
+        <img src="p5-images/p5-rect-CENTER.png" alt="rect-CENTER">
+
+        <p>To draw a rectangle specified by <strong>two opposite corners</strong>, use <code>rect_mode(CORNERS)</code> and <code>rect(<em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>)</code>.</p>
+        <p>For example the following code will draw this:</p>
+        <cc-code-block>
+rect_mode(CORNERS)
+rect(1, 1, 3, 5)
+        </cc-code-block>
+        <img src="p5-images/p5-rect-CORNERS.png" alt="rect-CORNERS">
+    </section>
+
+    <h2>Circle</h2>
+
+    <section>
+        <p>Use <code>circle(<em>cx</em>, <em>cy</em>, <em>diameter</em>)</code> to draw a circle centered at coordinates (cx, cy).</p>
+        <p>For example <code>circle(3, 3, 4)</code> will draw this:</p>
+        <img src="p5-images/p5-circle.png" alt="circle">
+    </section>
+
+    <h2>Ellipse</h2>
+
+    <section>
+        <p>To draw an ellipse specified by its <strong>top-left corner and dimensions</strong>, use <code>ellipse_mode(CORNER)</code> and <code>ellipse(<em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>)</code>.</p>
+        <p>For example the following code will draw this:</p>
+        <cc-code-block>
+ellipse_mode(CORNER)
+ellipse(1, 1, 2, 4)
+        </cc-code-block>
+        <img src="p5-images/p5-ellipse-CORNER.png" alt="ellipse-CORNER">
+
+        <p>To draw an ellipse specified by its <strong>center and dimensions</strong>, use <code>ellipse_mode(CENTER)</code> and <code>ellipse(<em>cx</em>, <em>cy</em>, <em>width</em>, <em>height</em>)</code>.</p>
+        <p>For example the following code will draw this:</p>
+        <cc-code-block>
+ellipse_mode(CENTER)
+ellipse(2, 3, 2, 4)
+        </cc-code-block>
+        <img src="p5-images/p5-ellipse-CENTER.png" alt="ellipse-CENTER">
+
+        <p>To draw an ellipse specified by <strong>two opposite corners</strong>, use <code>ellipse_mode(CORNERS)</code> and <code>ellipse(<em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>)</code>.</p>
+        <p>For example the following code will draw this:</p>
+        <cc-code-block>
+ellipse_mode(CORNERS)
+ellipse(1, 1, 3, 5)
+        </cc-code-block>
+        <img src="p5-images/p5-ellipse-CORNERS.png" alt="ellipse-CORNERS">
+    </section>
+
+    <h2>Shape</h2>
+
+    <section>
+        <p>To draw an arbitrary shape, start with <code>begin_shape()</code>, then add as many points as needed with <code>vertex(<em>x</em>, <em>y</em>)</code>, and finish with <code>end_shape(CLOSE)</code>.</p>
+        <p>For example the following code will draw a &quot;C&quot;:</p>
+        <cc-code-block>
+begin_shape()
+vertex(2, 1)
+vertex(5, 1)
+vertex(5, 2)
+vertex(3, 2)
+vertex(3, 5)
+vertex(5, 5)
+vertex(5, 6)
+vertex(2, 6)
+end_shape(CLOSE)
+        </cc-code-block>
+        <img src="p5-images/p5-shape.png" alt="shape">
+    </section>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</html>

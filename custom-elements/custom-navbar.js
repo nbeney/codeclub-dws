@@ -3,6 +3,7 @@ function navbar(active, level, style) {
     let activeGuizero = (active === 'guizero') ? 'active' : '';
     let activePygameZero = (active === 'pygame-zero') ? 'active' : '';
     let activeAdventurelib = (active === 'adventurelib') ? 'active' : '';
+    let activeP5 = (active === 'p5') ? 'active' : '';
     let activePythonLibraries = (active === 'python-libraries') ? 'active' : '';
 
     let pathPrefix = (level === '0') ? './' : '../'.repeat(level);
@@ -27,6 +28,9 @@ function navbar(active, level, style) {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ${activeAdventurelib}" href="${pathPrefix}/activities/adventurelib-based/index.html">Adventurelib</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ${activeP5}" href="${pathPrefix}/activities/p5-based/index.html">P5</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ${activePythonLibraries}" href="${pathPrefix}/activities/python-libraries/index.html">Python libraries</a>

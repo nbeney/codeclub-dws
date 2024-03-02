@@ -9,16 +9,21 @@ IMAGE_VOICE = path_for("loudspeaker.png")
 
 
 def on_click_number(number):
+    # CC:>>>>>
     app.last_number = number
     update_table()
+    # CC:<<<<<
 
 
 def on_click_letters():
+    # CC:>>>>>
     app.use_words = not app.use_words
     update_table()
+    # CC:<<<<<
 
 
 def on_click_loudspeaker():
+    # CC:>>>>>
     text = text_table.value
     text = text.replace(" x ", " times ")
     text = text.replace(" = ", " is ")
@@ -27,22 +32,24 @@ def on_click_loudspeaker():
         pyttsx3.speak(text)
     except Exception as ex:
         app.error("Error", f"An error occurred:\n{ex}")
+    # CC:<<<<<
 
 
 def update_table():
+    # CC:>>>>>
     p = inflect_engine
     number = app.last_number
-    use_words = app.use_words
     table = []
 
     for n in range(1, 12 + 1):
-        if use_words:
+        if app.use_words:
             table.append(
                 f"{p.number_to_words(number)} x {p.number_to_words(n)} =  {p.number_to_words(number * n)}")
         else:
             table.append(f"{number} x {n} = {number * n}")
 
     text_table.value = "\n".join(table)
+    # CC:<<<<<
 
 
 if __name__ == "__main__":

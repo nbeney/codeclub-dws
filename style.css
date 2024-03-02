@@ -105,3 +105,8 @@ details.hints > ul {
 details.hints pre {
     margin-right: 2em;
 }
+
+.flag {
+    border: 1px solid black;
+    margin-bottom: 1em;
+}

@@ -138,11 +138,11 @@ def farenheit_to_celsius(farenheit):
         <p>Here are some things you can try to make the app better. They are independent from each other so you can pick just a couple or do them in a different order. If you get stuck, use the <em>Hints</em> button or read the Guizero documentation (see <a href="../index.html">Build an app with Guizero</a>).</p>
         <p>And of course you can also use your imagination and change the app as you like!</p>
         <ul>
-            <li>Learn how to <strong>make your programs more robust by handling errors</strong> by reading W3School's <a href="https://www.w3schools.com/python/python_try_except.asp">Python Try Except</a> and <a href="https://www.w3schools.com/python/python_ref_exceptions.asp">Python Built-in Exceptions</a>.</li>
+            <li>Learn how to <strong>handle errors to make your programs more robust</strong> by reading W3School's <a href="https://www.w3schools.com/python/python_try_except.asp">Python Try Except</a> and <a href="https://www.w3schools.com/python/python_ref_exceptions.asp">Python Built-in Exceptions</a>.</li>
             <li>Use <strong>different units</strong> than Celsius and Farenheit. For example you could convert between kilometers and miles.
                 <ol>
                     <li>The structure of the code will probably not change.</li>
-                    <li>Replace all the references to "temperature", "Celsius", "Farenheit", etc by the appropriate words in:
+                    <li>Replace all the references to <em>temperature/Celsius/Farenheit/etc</em> by the appropriate words (eg <em>distance/kilometers/miles/etc</em>) in:
                         <ul>
                             <li>the widgets: look for things like <code>title</code>, <code>text</code>, etc.</li>
                             <li>the code: look for things like variable names, function names, etc.</li>
@@ -157,7 +157,7 @@ def farenheit_to_celsius(farenheit):
                     <li>To convert between Farenheit and Kelvin, you can convert to Celsius as an intermediate step.</li>
                     <li>Create a new <cc-gz-textbox/> (with an associated <cc-gz-text/> for the label) linked to the <code>on_change_kelvin</code> callback function.</li>
                     <li>Create a new <code>on_change_kelvin</code> callback function to update the Celsius and Farenheit text fields.</li>
-                    <li>Modify the <code>on_change_celsius</code> and <code>on_change_farenheit</code> callback functions to also update the Kelvin text fields.</li>
+                    <li>Modify the <code>on_change_celsius</code> and <code>on_change_farenheit</code> callback functions to also update the Kelvin text field.</li>
                 </ol>
             </li>
         </ul>
