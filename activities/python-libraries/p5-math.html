@@ -381,31 +381,24 @@ run()
                         
                         // Draw the radius and the angle.
                         p.stroke("green");
-                        p.strokeWeight(3);
                         p.line(0, 0, x*radius, y*radius);
                         p.arc(0, 0, radius/2, radius/2, 0, angle);
-                        p.strokeWeight(1);
                         p.textAlign(p.CENTER, p.BOTTOM);
                         p.text("a", 1.2 * radius/4 * Math.cos(angle/2), 1.2 * radius/4 * Math.sin(angle/2));
                         
                         // Draw the cos.
                         p.stroke("red");
-                        p.strokeWeight(3);
                         p.line(0, radius*y, radius*x, radius*y);
-                        p.strokeWeight(1);
                         p.textAlign(p.CENTER, p.CENTER);
                         p.text("x", radius*x/2, radius*y-10);
                         
                         // Draw the sin.
                         p.stroke("blue");
-                        p.strokeWeight(3);
                         p.line(radius*x, 0, radius*x, radius*y);
-                        p.strokeWeight(1);
                         p.textAlign(p.LEFT, p.CENTER);
                         p.text("y", radius*x+10, radius*y/2);
 
                         // Draw the legend.
-                        p.strokeWeight(1);
                         p.textAlign(p.LEFT, p.BOTTOM);
                         p.stroke("green");
                         let a = (p.degrees(angle) + 360) % 360;
@@ -449,19 +442,19 @@ run()
 
                     p.draw = function() {
                         const freq = p.map(p.constrain(mx, 0, p.width), 0, p.width, 0.1, 10);  // frequency
-                        const amp = p.map(p.constrain(my, 0, p.height), 0, p.height, p.height/3, -p.height/3);  // amplitude
+                        const amp = p.map(p.constrain(my, 0, p.height), 0, p.height, -p.height/3, p.height/3);  // amplitude
                         
                         p.background(200);
                         p.text(`amp: ${amp.toFixed(1)}\nfreq: ${freq.toFixed(1)}`, 10, 10);
 
                         p.push();
                         p.translate(0, p.height/2);
-                        p.scale(1, -1);
                         
                         // Draw the axis.
                         p.line(0, 0, p.width, 0);
-                        p.line(1, p.height/2, 1, -p.height/2);
                         p.text("x", p.width-10, 10);
+                        p.line(1, p.height/2, 1, -p.height/2);
+                        p.text("y", 10, p.height/2-10);
                         
                         // Draw the cos graph.
                         p.stroke("red");
@@ -489,6 +482,13 @@ run()
                             py = y;
                         }
                         
+                        // Draw the legend.
+                        p.textAlign(p.CENTER, p.BOTTOM);
+                        p.stroke("red");
+                        p.text(`y = amp * cos(freq * x)`, p.width/2, p.height/2-30);
+                        p.stroke("blue");
+                        p.text(`y = amp * sin(freq * x)`, p.width/2, p.height/2-15);
+
                         p.pop();
                     }
                 }, "p5-cos-sin")
