@@ -9,7 +9,7 @@ new p5(p => {
     function updateSliderAngle() {
         if (p.mouseX >= 0 && p.mouseX < p.width && p.mouseY >= 0 && p.mouseY < p.height) {
             const dx = p.mouseX - p.width/2;
-            const dy = p.mouseY - p.height/2;
+            const dy = adjustForSchoolMode(p.mouseY - p.height/2);
             const angle = (Math.atan2(dy, dx) + p.TWO_PI) % p.TWO_PI; // avoid -ve values b/c of the slider
             sliderAngle.value(p.degrees(angle));
         }
