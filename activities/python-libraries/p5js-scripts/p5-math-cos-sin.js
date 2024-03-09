@@ -1,9 +1,13 @@
 new p5(p => {
     let x;
     let y;
+    let sliderAmp;
+    let sliderFreq;
 
     p.setup = function() {
         p.createCanvas(600, 300);
+        sliderAmp = p.createSlider(-p.height/3, p.height/3, p.height/3, 5);
+        sliderFreq = p.createSlider(0.1, 10, 1, 0.1);
         mx = 100;
         my = 100;
     }
@@ -24,8 +28,10 @@ new p5(p => {
     }
 
     p.draw = function() {
-        const freq = p.map(p.constrain(mx, 0, p.width), 0, p.width, 0.1, 10);  // frequency
-        const amp = p.map(p.constrain(my, 0, p.height), 0, p.height, -p.height/3, p.height/3);  // amplitude
+        // const freq = p.map(p.constrain(mx, 0, p.width), 0, p.width, 0.1, 10);  // frequency
+        const freq = sliderFreq.value();
+        // const amp = p.map(p.constrain(my, 0, p.height), 0, p.height, -p.height/3, p.height/3);  // amplitude
+        const amp = sliderAmp.value();
         
         p.background(200);
         p.text(`amp: ${amp.toFixed(1)}\nfreq: ${freq.toFixed(1)}`, 10, 10);
