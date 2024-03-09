@@ -6,8 +6,11 @@ new p5(p => {
 
     p.setup = function() {
         p.createCanvas(600, 300);
-        sliderAmp = p.createSlider(-p.height/3, p.height/3, p.height/3, 5);
-        sliderFreq = p.createSlider(0.1, 10, 1, 0.1);
+
+        const div = p.createDiv();
+        sliderAmp = p.createSlider(-p.height/3, p.height/3, p.height/3, 5).parent(div);
+        sliderFreq = p.createSlider(0.1, 10, 1, 0.1).parent(div);
+
         mx = 100;
         my = 100;
     }
@@ -35,8 +38,6 @@ new p5(p => {
         
         p.background(200);
         p.text(`amp: ${amp.toFixed(1)}\nfreq: ${freq.toFixed(1)}`, 10, 10);
-
-        p.text(p.degrees(globalAngle).toFixed(0), 10, 70);
 
         p.push();
         p.translate(0, p.height/2);
