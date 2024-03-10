@@ -38,8 +38,17 @@ def setup():
     size(300, 300)
 
 def draw():
+    background(240)
+
+    push_style()
+    fill("purple")
+    stroke_weight(5)
+    rect(0.1 * width, 0.8 * height, 0.8 * width, 0.1 * height)
+    pop_style()
+    
     mx, my = mouse_x, mouse_y
     pmx, pmy = pmouse_x(), pmouse_y()
+    color = get(mx, my)
 
     lines = [
         "Use the mouse and the keyboard.",
@@ -47,11 +56,14 @@ def draw():
         "",
         f"mx={mx:.0f}, my={my:.0f}",
         f"pmx={pmx:.0f}, pmy={pmy:.0f}",
+        "",
+        f"color.hex = {color.hex}",
+        f"color.rgb = {color.red},{color.green},{color.blue}",
+        f"color.hsb = {color.hue},{color.saturation:.0f},{color.brightness:.0f}",
     ]
         
-    background(240)
     text_align(CENTER, CENTER)
-    text("\n".join(lines), width/2, height/2)
+    text("\n".join(lines), width/2, height*0.4)
 
 def key_pressed():
     key, code = keyboard.key, keyboard.keyCode
@@ -80,6 +92,12 @@ def mouse_dragged():
     mx, my = mouse_x, mouse_y
     pmx, pmy = pmouse_x(), pmouse_y()
     print(f"mouse_dragged - mx={mx:.0f}, my={my:.0f}, pmx={pmx:.0f}, pmy={pmy:.0f}")
+
+def mouse_wheel():
+    # TODO: How to obtain the wheel count?
+    mx, my = mouse_x, mouse_y
+    pmx, pmy = pmouse_x(), pmouse_y()
+    print(f"mouse_wheel - mx={mx:.0f}, my={my:.0f}, pmx={pmx:.0f}, pmy={pmy:.0f}")
 
 run()
     </cc-code-block>
