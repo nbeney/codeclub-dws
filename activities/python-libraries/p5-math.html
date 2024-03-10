@@ -114,7 +114,7 @@ def draw():
     my = constrain(mouse_y, y1, y2)  # constrain vertically
 
     push_style()
-    background(200)
+    background(240)
     text(f"mouse_x: {mouse_x:.0f} => mx: {mx:.0f}\nmouse_y: {mouse_y:.0f} => my: {my:.0f}", 10, 10)
     rect(x1, y1, x2, y2)
     stroke("red")
@@ -146,7 +146,7 @@ run()
                     const my = Math.round(p.constrain(p.mouseY, y1, y2));
 
                     p.push();
-                    p.background(200);
+                    p.background(240);
                     p.text(`mouseX: ${Math.round(p.mouseX)} => mx: ${mx}\nmouseY: ${Math.round(p.mouseY)} => my: ${my}`, 10, 10);
                     p.rect(x1, y1, x2, y2);
                     p.stroke("red");
@@ -209,7 +209,7 @@ def draw():
     diameter = map(mouse_y, 0, height, 10, height * 0.8)  # map mouse_y from [0..height] to [10..height*0.8]
 
     push_style()
-    background(200)
+    background(240)
     fill(0)
     text(f"mouse_x: {mouse_x:.0f} => hue: {hue:.0f}\nmouse_y: {mouse_y:.0f} => diameter: {diameter:.0f}", 10, 10)
     color_mode(HSB)
@@ -225,8 +225,8 @@ run()
             new p5(p => {
                 p.setup = function() {
                     p.createCanvas(200, 200);
-                
                 }
+                
                 p.draw = function() {
                     // Do nothing if the mouse is not in the canvas.
                     if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
@@ -239,7 +239,7 @@ run()
                     const diameter = Math.round(p.map(y, 0, p.height, 10, p.height * 0.8));
 
                     p.push();
-                    p.background(200);
+                    p.background(240);
                     p.fill(0);
                     p.text(`mouseX: ${x} => hue: ${hue}\nmouseY: ${y} => diameter: ${diameter}`, 10, 10);
                     p.colorMode(p.HSB);
@@ -273,7 +273,7 @@ def draw():
     cy = height / 2
     d = dist(cx, cy, mouse_x, mouse_y)
     
-    background(200)
+    background(240)
     line(cx, cy, mouse_x, mouse_y)
     text(f"distance: {d:.0f}", 10, 10)
     
@@ -284,8 +284,8 @@ run()
             new p5(p => {
                 p.setup = function() {
                     p.createCanvas(200, 200);
-                
                 }
+
                 p.draw = function() {
                     // Do nothing if the mouse is not in the canvas.
                     if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
@@ -296,7 +296,7 @@ run()
                     const cy = p.height/2;
                     const d = Math.round(p.dist(cx, cy, p.mouseX, p.mouseY));
                     
-                    p.background(200);
+                    p.background(240);
                     p.line(cx, cy, p.mouseX, p.mouseY);
                     p.text(`distance: ${d}`, 10, 10);
                 }
