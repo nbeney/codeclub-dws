@@ -41,7 +41,7 @@ new p5(p => {
         p.translate(p.width/2, p.height/2);
 
         // Draw the angle pie slice.
-        p.fill("lightgreen");
+        p.fill(200, 255, 200); // light green
         p.stroke("green");
         if (angleRad === 0) {
             p.line(0, 0, diameter/2, 0);

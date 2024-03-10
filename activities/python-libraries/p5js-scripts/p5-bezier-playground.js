@@ -34,8 +34,12 @@ new p5(p => {
     p.draw = function() {
         p.background(240);
 
+        if (activeDot) {
+            p.text(`x: ${activeDot.x.toFixed(0)}, y: ${activeDot.y.toFixed(0)}`, 10, 10);
+        }
+
         p.push();
-        p.fill(200, 255, 200);
+        p.fill(200, 255, 200); // light green
         p.stroke("red");
         p.strokeWeight(3);
         p.bezier(start.x, start.y, cp1.x, cp1.y, cp2.x, cp2.y, stop.x, stop.y);
