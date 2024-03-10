@@ -16,6 +16,74 @@
 
     <h1>P5 library - Interactivity</h1>
 
+    <ul>
+        <li>mouse_x & mouse_y</li>
+        <li>pmouse_x() & pmouse_y()</li>
+        <li>keyboard.key & keyboard.keyCode</li>
+        <li>Events:</li>
+        <ul>
+            <li>key_pressed()</li>
+            <li>key_released()</li>
+            <li>mouse_moved()</li>
+            <li>mouse_pressed()</li>
+            <li>mouse_released()</li>
+            <li>mouse_dragged()</li>
+        </ul>
+    </ul>
+
+    <cc-code-block>
+from p5 import *
+
+def setup():
+    size(300, 300)
+
+def draw():
+    mx, my = mouse_x, mouse_y
+    pmx, pmy = pmouse_x(), pmouse_y()
+
+    lines = [
+        "Use the mouse and the keyboard.",
+        "Check the text output.",
+        "",
+        f"mx={mx:.0f}, my={my:.0f}",
+        f"pmx={pmx:.0f}, pmy={pmy:.0f}",
+    ]
+        
+    background(240)
+    text_align(CENTER, CENTER)
+    text("\n".join(lines), width/2, height/2)
+
+def key_pressed():
+    key, code = keyboard.key, keyboard.keyCode
+    print(f"key_pressed - key={key}, code={code}")
+
+def key_released():
+    key, code = keyboard.key, keyboard.keyCode
+    print(f"key_released - key={key}, code={code}")
+
+def mouse_moved():
+    mx, my = mouse_x, mouse_y
+    pmx, pmy = pmouse_x(), pmouse_y()
+    # print(f"mouse_moved - mx={mx:.0f}, my={my:.0f}, pmx={pmx:.0f}, pmy={pmy:.0f}")
+
+def mouse_pressed():
+    mx, my = mouse_x, mouse_y
+    pmx, pmy = pmouse_x(), pmouse_y()
+    print(f"mouse_pressed - mx={mx:.0f}, my={my:.0f}, pmx={pmx:.0f}, pmy={pmy:.0f}")
+
+def mouse_released():
+    mx, my = mouse_x, mouse_y
+    pmx, pmy = pmouse_x(), pmouse_y()
+    print(f"mouse_released - mx={mx:.0f}, my={my:.0f}, pmx={pmx:.0f}, pmy={pmy:.0f}")
+
+def mouse_dragged():
+    mx, my = mouse_x, mouse_y
+    pmx, pmy = pmouse_x(), pmouse_y()
+    print(f"mouse_dragged - mx={mx:.0f}, my={my:.0f}, pmx={pmx:.0f}, pmy={pmy:.0f}")
+
+run()
+    </cc-code-block>
+
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
