@@ -1,21 +1,25 @@
 {
-    let sliderWidth;
-    let labelWidth;
+    let theWidth = 300;
 
     new p5(p => {
+        let sliderWidth;
+        let labelWidth;
+    
         p.setup = function() {
-            p.createCanvas(300, 188);
+            p.createCanvas(theWidth, theWidth / 1.6);
 
             let divContainer = p.createDiv();
             p.createSpan("Width: ").parent(divContainer);
             sliderWidth = p.createSlider(100, 400, 300, 10).parent(divContainer);
             p.createSpan("   ").parent(divContainer); // spacer
             labelWidth = p.createSpan("???").parent(divContainer);
+
+            sliderWidth.changed(() => {
+                theWidth = sliderWidth.value();
+            });
         }
 
         p.draw = function() {
-            const theWidth = sliderWidth.value();
-
             labelWidth.html(theWidth);
             p.resizeCanvas(theWidth, theWidth / 1.6);
 
@@ -35,13 +39,25 @@
     }, "p5-good-relative");
 
     new p5(p => {
+        let sliderWidth;
+        let labelWidth;
+    
         p.setup = function() {
-            p.createCanvas(300, 188);
+            p.createCanvas(theWidth, theWidth / 1.6);
+
+            let divContainer = p.createDiv();
+            p.createSpan("Width: ").parent(divContainer);
+            sliderWidth = p.createSlider(100, 400, 300, 10).parent(divContainer);
+            p.createSpan("   ").parent(divContainer); // spacer
+            labelWidth = p.createSpan("???").parent(divContainer);
+
+            sliderWidth.changed(() => {
+                theWidth = sliderWidth.value();
+            });
         }
 
         p.draw = function() {
-            const theWidth = sliderWidth.value();
-
+            labelWidth.html(theWidth);
             p.resizeCanvas(theWidth, theWidth / 1.6);
 
             p.background("grey");
