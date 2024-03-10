@@ -1,8 +1,9 @@
 {
     let theWidth = 300;
+    let sliderWidthRel;
+    let sliderWidthAbs;
 
     new p5(p => {
-        let sliderWidth;
         let labelWidth;
     
         p.setup = function() {
@@ -10,12 +11,13 @@
 
             let divContainer = p.createDiv();
             p.createSpan("Width: ").parent(divContainer);
-            sliderWidth = p.createSlider(100, 400, 300, 10).parent(divContainer);
+            sliderWidthRel = p.createSlider(100, 400, 300, 10).parent(divContainer);
             p.createSpan("   ").parent(divContainer); // spacer
             labelWidth = p.createSpan("???").parent(divContainer);
 
-            sliderWidth.changed(() => {
-                theWidth = sliderWidth.value();
+            sliderWidthRel.changed(() => {
+                theWidth = sliderWidthRel.value();
+                sliderWidthAbs.value(theWidth);
             });
         }
 
@@ -39,7 +41,6 @@
     }, "p5-good-relative");
 
     new p5(p => {
-        let sliderWidth;
         let labelWidth;
     
         p.setup = function() {
@@ -47,12 +48,13 @@
 
             let divContainer = p.createDiv();
             p.createSpan("Width: ").parent(divContainer);
-            sliderWidth = p.createSlider(100, 400, 300, 10).parent(divContainer);
+            sliderWidthAbs = p.createSlider(100, 400, 300, 10).parent(divContainer);
             p.createSpan("   ").parent(divContainer); // spacer
             labelWidth = p.createSpan("???").parent(divContainer);
 
-            sliderWidth.changed(() => {
-                theWidth = sliderWidth.value();
+            sliderWidthAbs.changed(() => {
+                theWidth = sliderWidthAbs.value();
+                sliderWidthRel.value(theWidth);
             });
         }
 
