@@ -408,6 +408,73 @@ run()
         <p>...</p>
         <div id="p5-cos-sin"></div>
         <script src="p5js-scripts/p5-math-cos-sin.js"></script>
+        <p></p>
+        <h3>Example #1 - Polygons</h3>
+        <p>Here is a program that draws a regular polygon for a given number of sides and radius.</p>
+        <cc-code-block>
+from p5 import *
+from math import cos, sin
+
+NPOINTS = 5  # this is the same as the number of sides
+RADIUS = 120
+
+def setup():
+    size(300, 300)
+    no_loop()
+
+def draw():
+    background(240)  # light grey
+    translate(width/2, height/2)
+    fill(200, 255, 200)  # light green
+    stroke_weight(3)
+    begin_shape()
+    for i in range(NPOINTS):
+        x = RADIUS * cos(radians(i * 360 / NPOINTS))
+        y = RADIUS * sin(radians(i * 360 / NPOINTS))
+        vertex(x, y)
+    end_shape(CLOSE)
+
+run()
+        </cc-code-block>
+        <div id="p5-polygon"></div>
+        <script src="p5js-scripts/p5-polygon.js"></script>
+        <p><br><strong>Challenge #1</strong>: Modify the code to start drawing from the top (North) instead of from the right (East).</p>
+        <p><strong>Challenge #2</strong>: Modify the code to draw stars instead of polygons.</p>
+
+        <h3>Example #2 - Pulsating circle</h3>
+        <p>Here is a program that draws a pulsating circle with changing color.</p>
+        <cc-code-block>
+from p5 import *
+from math import cos, sin
+
+def setup():
+    size(300, 300)
+
+def draw():
+    # frame_count increases by one every time
+    angle_rad = radians(frame_count)
+
+    # Calculate the new diameter.
+    freq = 1  # change to adjust the speed
+    diameter = map(sin(freq * angle_rad), -1, 1, height*0.1, height*0.9)
+    
+    # Calculate the new color.
+    freq = 0.2  # change to adjust the speed
+    hue = map(cos(freq * angle_rad), -1, 1, 0, 255)
+
+    # Update the canvas.
+    color_mode(RGB)
+    background(240)  # lightgrey
+    translate(width/2, height/2)
+    color_mode(HSB)
+    fill(hue, 255, 255)
+    stroke_weight(3)
+    circle(0, 0, diameter)
+
+run()
+        </cc-code-block>
+        <div id="p5-pulse"></div>
+        <script src="p5js-scripts/p5-pulse.js"></script>
     </section>
 
     <h2>atan2</h2>
