@@ -8,6 +8,7 @@
     <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-library.js"></script>
     <script type="module" src="../../custom-elements/custom-code-block.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.1/lib/p5.min.js"></script>
     <link rel="stylesheet" href="../../style.css">
     </head>
 
@@ -44,23 +45,24 @@
         </p>
         <div class="container text-center">
             <div class="row align-items-center">
-              <div class="col">
-                <table class="table table-sm table-striped">
-                    <tr><th>Degrees</th><th>Radians</th></tr>
-                    <tr><td>0&deg;</td><td>0</td></tr>
-                    <tr><td>45&deg;</td><td>PI/4 = QUARTER_PI</td></tr>
-                    <tr><td>90&deg;</td><td>PI/2 = HALF_PI</td></tr>
-                    <tr><td>135&deg;</td><td>3*PI/4 = 3*QUARTER_PI</td></tr>
-                    <tr><td>180&deg;</td><td>PI</td></tr>
-                    <tr><td>225&deg;</td><td>5*PI/4 = 5*QUARTER_PI</td></tr>
-                    <tr><td>270&deg;</td><td>3*PI/2 = 3*HALF_PI</td></tr>
-                    <tr><td>315&deg;</td><td>7*PI/4 = 7*QUARTER_PI</td></tr>
-                    <tr><td>360&deg;</td><td>2*PI = TWO_PI = TAU</td></tr>
-                </table>
-            </div>
-              <div class="col">
-                <img src="p5-images/p5-angles.png" alt="angles">
-            </div>
+                <div class="col">
+                    <div id="p5-angles"></div>
+                    <script src="p5js-scripts/p5-angles.js"></script>
+                </div>
+                <div class="col">
+                    <table class="table table-sm table-striped">
+                        <tr><th>Degrees</th><th>Radians</th></tr>
+                        <tr><td>0&deg;</td><td>0</td></tr>
+                        <tr><td>45&deg;</td><td>PI/4 = QUARTER_PI</td></tr>
+                        <tr><td>90&deg;</td><td>PI/2 = HALF_PI</td></tr>
+                        <tr><td>135&deg;</td><td>3*PI/4 = 3*QUARTER_PI</td></tr>
+                        <tr><td>180&deg;</td><td>PI</td></tr>
+                        <tr><td>225&deg;</td><td>5*PI/4 = 5*QUARTER_PI</td></tr>
+                        <tr><td>270&deg;</td><td>3*PI/2 = 3*HALF_PI</td></tr>
+                        <tr><td>315&deg;</td><td>7*PI/4 = 7*QUARTER_PI</td></tr>
+                        <tr><td>360&deg;</td><td>2*PI = TWO_PI = TAU</td></tr>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
@@ -147,7 +149,6 @@ rect(150, 150, 400, 400, 30)  # all corners have a radius of 30
 stroke("blue")
 rect(300, 300, 400, 400, 10, 20, 40, 80)  # each corner has a different radius
         </cc-code-block>
-        <img src="p5-images/p5-rect-rounded.png" alt="rect-rounded">
     </section>
 
     <h2>Square</h2>

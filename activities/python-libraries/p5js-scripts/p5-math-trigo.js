@@ -35,7 +35,7 @@ new p5(p => {
         const x = Math.cos(angle);
         const y = Math.sin(angle);
 
-        p.background(200);
+        p.background(240);
         p.push();
         
         p.translate(p.width/2, p.height/2);

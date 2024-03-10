@@ -57,7 +57,7 @@ new p5(p => {
         labelFreq.html(freq.toFixed(1));
         labelAngle.html(angleDeg.toFixed(1));
         
-        p.background(200);
+        p.background(240);
 
         p.push();
         p.translate(0, p.height/2);
