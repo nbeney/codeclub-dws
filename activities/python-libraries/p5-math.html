@@ -226,7 +226,7 @@ run()
                 p.setup = function() {
                     p.createCanvas(200, 200);
                 }
-                
+
                 p.draw = function() {
                     // Do nothing if the mouse is not in the canvas.
                     if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
@@ -481,6 +481,60 @@ run()
 
     <section>
         <p>...</p>
+        <cc-code-block>
+from p5 import *
+from math import atan2
+
+def setup():
+    size(300, 300)
+
+def draw():
+    length = 1.8 * dist(width/2, height/2, mouse_x, mouse_y)
+    dx = mouse_x - width/2
+    dy = mouse_y - height/2
+    angle_rad = atan2(dy, dx)
+
+    background(240)
+    push_matrix()
+    translate(width/2, height/2)
+    rotate(angle_rad)
+    line(-length/2, 0, length/2, 0)
+    translate(length/2, 0)
+    triangle(0, 0, -15, -10, -15, 10)
+    pop_matrix()
+
+run()
+        </cc-code-block>
+        <div id="p5-arrow"></div>
+        <script>
+            new p5(p => {
+                p.setup = function() {
+                    p.createCanvas(300, 300);
+                }
+
+                p.draw = function() {
+                    // Do nothing if the mouse is not in the canvas.
+                    if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
+                        return;
+                    }
+
+                    const length = 1.8 * p.dist(p.width/2, p.height/2, p.mouseX, p.mouseY);
+                    const dx = p.mouseX - p.width/2;
+                    const dy = p.mouseY - p.height/2;
+                    const angle_rad = p.atan2(dy, dx);
+
+                    p.background(240);
+                    p.push();
+                    p.translate(p.width/2, p.height/2);
+                    p.rotate(angle_rad);
+                    p.strokeWeight(2);
+                    p.line(-length/2, 0, length/2, 0);
+                    p.translate(length/2, 0);
+                    p.triangle(0, 0, -15, -10, -15, 10);
+                    p.pop();
+                }
+            }, "p5-arrow");
+        </script>
     </section>
 
 </body>
