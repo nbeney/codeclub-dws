@@ -7,6 +7,7 @@
     <title>P5 - Math tidbits</title>
     <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-library.js"></script>
+    <script src="../../custom-elements/custom-toc.js" defer></script>
     <script type="module" src="../../custom-elements/custom-code-block.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.9.1/lib/p5.min.js"></script>
     <link rel="stylesheet" href="../../style.css">
@@ -17,7 +18,12 @@
 
     <h1>P5 library - Math tidbits</h1>
 
-    <h2>Absolute vs relative measurements</h2>
+    <aside>
+        <h2>Table of contents</h2>
+        <cc-toc></cc-toc>
+    </aside>
+
+    <h2 id="abs-vs-rel">Use proportional values</h2>
 
     <section>
         <p>...</p>
@@ -82,7 +88,7 @@ run()
         <script src="p5js-scripts/p5-abs-vs-rel.js"></script>
     </section>
     
-    <h2>constrain</h2>
+    <h2 id="constrain">Constrain a value to a range</h2>
 
     <section>
         <p><code>constrain(<em>value</em>, <em>start</em>, <em>stop</em>)</code> returns a value which is guaranteed to be in the <code>[<em>start</em>..<em>stop</em>]</code> range.</p>
@@ -158,7 +164,7 @@ run()
         </script>
     </section>
 
-    <h2>norm</h2>
+    <h2 id="norm">Normalize a value</h2>
 
     <section>
         <p><code>norm(<em>value</em>, <em>start</em>, <em>stop</em>)</code> returns a value which represents where <code>value</code> is relatively to the <code>[<em>start</em>..<em>stop</em>]</code> range.</p>
@@ -182,7 +188,7 @@ norm(9, 3, 7)  # returns 1.5 (because 9 is above 7)
         </cc-code-block>
     </section>
 
-    <h2>map</h2>
+    <h2 id="map">Map a value from one range to another</h2>
 
     <section>
         <p><code>map(<em>value</em>, <em>start1</em>, <em>stop1</em>, <em>start2</em>, <em>stop2</em>)</code> converts a value from the <code>[<em>start1</em>..<em>stop1</em>]</code> range into the <code>[<em>start2</em>..<em>stop2</em>]</code> range.</p>
@@ -252,7 +258,7 @@ run()
         </script>
     </section>
 
-    <h2>dist & mag</h2>
+    <h2 id="dist-mag">Calculate the distance between two points</h2>
 
     <section>
         <p><code>dist(<em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>)</code> calculates the distance between two points <code>(<em>x1</em>,<em>y1</em>)</code> and <code>(<em>x2</em>,<em>y2</em>)</code>.</p>
@@ -275,7 +281,7 @@ def draw():
     
     background(240)
     line(cx, cy, mouse_x, mouse_y)
-    text(f"distance: {d:.0f}", 10, 10)
+    text(f"Distance: {d:.0f}", 10, 10)
     
 run()
         </cc-code-block>
@@ -304,7 +310,7 @@ run()
         </script>
     </section>
 
-    <h2>lerp</h2>
+    <h2 id="lerp">Calculate a value between two other values</h2>
 
     <section>
         <p>
@@ -359,13 +365,13 @@ run()
         <img src="p5-images/p5-math-lerp-dotted.png" alt="lerp-dotted">
     </section>
 
-    <h2>Randomness</h2>
+    <h2 id="randomness">Randomness</h2>
 
     <section>
         <p>random, random_seed</p>
     </section>
         
-    <h2>Angles</h2>
+    <h2 id="angles">Angles</h2>
 
     <section>
         <p>
@@ -399,7 +405,7 @@ run()
         </div>
     </section>
 
-    <h2>cos & sin</h2>
+    <h2 id="cos-sin">Calculate the coordinates from an angle</h2>
 
     <section>
         <p>...</p>
@@ -477,7 +483,7 @@ run()
         <script src="p5js-scripts/p5-pulse.js"></script>
     </section>
 
-    <h2>atan2</h2>
+    <h2 id="atan2">Calculate the angle from some coordinates</h2>
 
     <section>
         <p>...</p>
@@ -522,8 +528,10 @@ run()
                     const dx = p.mouseX - p.width/2;
                     const dy = p.mouseY - p.height/2;
                     const angle_rad = p.atan2(dy, dx);
+                    const angle_deg = p.degrees(angle_rad).toFixed(0);
 
                     p.background(240);
+                    p.text(`Angle: ${angle_deg}° = ${angle_rad.toFixed(2)} rads`, 10, 10);
                     p.push();
                     p.translate(p.width/2, p.height/2);
                     p.rotate(angle_rad);

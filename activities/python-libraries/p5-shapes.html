@@ -7,6 +7,7 @@
     <title>P5 - Coordinates, angles &amp; shapes</title>
     <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-library.js"></script>
+    <script src="../../custom-elements/custom-toc.js" defer></script>
     <script type="module" src="../../custom-elements/custom-code-block.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.9.1/lib/p5.min.js"></script>
     <link rel="stylesheet" href="../../style.css">
@@ -17,7 +18,12 @@
 
     <h1>P5 library - Coordinates, angles &amp; shapes</h1>
 
-    <h2>Coordinates</h2> 
+    <aside>
+        <h2>Table of contents</h2>
+        <cc-toc></cc-toc>
+    </aside>
+
+    <h2 id="coordinates">Coordinates</h2> 
     
     <section>
         <p>Use <code>size(<em>width</em>, <em>height</em>)</code> to set the width and the height of the canvas.</p>
@@ -33,7 +39,7 @@
         <img src="p5-images/p5-coordinates.png" alt="coordinates">
     </section>
 
-    <h2>Angles</h2>
+    <h2 id="angles">Angles</h2>
 
     <section>
         <p>
@@ -67,7 +73,7 @@
         </div>
     </section>
 
-    <h2>Point</h2>
+    <h2 id="point">Point</h2>
 
     <section>
         <p>Use <code>point(<em>x</em>, <em>y</em>)</code> to draw a single point at coordinates (x, y).</p>        
@@ -78,7 +84,7 @@ point(3, 5)
         <img src="p5-images/p5-point.png" alt="point">
     </section>
 
-    <h2>Line</h2>
+    <h2 id="line">Line</h2>
 
     <section>
         <p>Use <code>line(<em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>)</code> to draw a line between coordinates (x1, y1) and (x2, y2).</p>
@@ -89,7 +95,7 @@ line(2, 6, 5, 1)
         <img src="p5-images/p5-line.png" alt="line">
     </section>
 
-    <h2>Triangle</h2>
+    <h2 id="triangle">Triangle</h2>
 
     <section>
         <p>Use <code>triangle(<em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>x3</em>, <em>y3</em>)</code> to draw a triangle between coordinates (x1, y1), (x2, y2), and (x3, y3).</p>
@@ -100,7 +106,7 @@ triangle(2, 3, 5, 1, 4, 6)
         <img src="p5-images/p5-triangle.png" alt="triangle">
     </section>
 
-    <h2>Quad</h2>
+    <h2 id="quad">Quad</h2>
 
     <section>
         <p>Use <code>quad(<em>x1</em>, <em>y1</em>, <em>x2</em>, <em>y2</em>, <em>x3</em>, <em>y3</em>, <em>x4</em>, <em>y4</em>)</code> to draw a quadrilateral between coordinates (x1, y1), (x2, y2), (x3, y3), and (x4, y4).</p>
@@ -111,7 +117,7 @@ quad(1, 6, 2, 2, 5, 1, 6, 5)
         <img src="p5-images/p5-quad.png" alt="quad">
     </section>
 
-    <h2>Rect</h2>
+    <h2 id="rect">Rect</h2>
 
     <section>
         <p>To draw a rectangle specified by its <strong>top-left corner and dimensions</strong>, use <code>rect_mode(CORNER)</code> and <code>rect(<em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>)</code>.</p>
@@ -151,7 +157,7 @@ rect(300, 300, 400, 400, 10, 20, 40, 80)  # each corner has a different radius
         </cc-code-block>
     </section>
 
-    <h2>Square</h2>
+    <h2 id="square">Square</h2>
 
     <section>
         <p><code>square</code> is a special case of <code>rect</code> where the width and the height are identical.</p>
@@ -186,7 +192,7 @@ square(300, 300, 400, 10, 20, 40, 80)  # each corner has a different radius
         <img src="p5-images/p5-rect-rounded.png" alt="square-rounded">
     </section>
 
-    <h2>Ellipse</h2>
+    <h2 id="ellipse">Ellipse</h2>
 
     <section>
         <p>To draw an ellipse specified by its <strong>top-left corner and dimensions</strong>, use <code>ellipse_mode(CORNER)</code> and <code>ellipse(<em>x</em>, <em>y</em>, <em>width</em>, <em>height</em>)</code>.</p>
@@ -214,7 +220,7 @@ ellipse(1, 1, 3, 5)
         <img src="p5-images/p5-ellipse-CORNERS.png" alt="ellipse-CORNERS">
     </section>
 
-    <h2>Circle</h2>
+    <h2 id="circle">Circle</h2>
 
     <section>
         <p><code>circle</code> is a special case of <code>ellipse</code> where the width and the height are identical.</p>
@@ -226,7 +232,7 @@ circle(3, 3, 4)
         <img src="p5-images/p5-circle.png" alt="circle">
     </section>
 
-    <h2>Arc</h2>
+    <h2 id="arc">Arc</h2>
 
     <section>
         <p>To draw an ellipse <strong>arc</strong>, use <code>arc(<em>cx</em>, <em>cy</em>, <em>width</em>, <em>height</em>, <em>start_angle</em>, <em>stop_angle</em>, OPEN)</code>.</p>
@@ -251,7 +257,7 @@ arc(4, 2, 5, 7, radians(45), radians(180), PIE)
         <img src="p5-images/p5-arc-PIE.png" alt="arc-PIE">
     </section>
 
-    <h2>Shape</h2>
+    <h2 id="shape">Shape</h2>
 
     <section>
         <p>To draw an arbitrary polygon, start with <code>begin_shape()</code>, then add as many points as needed with <code>vertex(<em>x</em>, <em>y</em>)</code>, and finish with <code>end_shape(CLOSE)</code>.</p>
@@ -271,7 +277,7 @@ end_shape(CLOSE)
         <img src="p5-images/p5-shape.png" alt="shape">
     </section>
 
-    <h2>Bezier</h2>
+    <h2 id="bezier">Bezier</h2>
 
     <section>
         <p>To draw smooth and artistic looking curves, use <code>bezier(<em>start_x</em>, <em>start_y</em>, <em>cp1_x</em>, <em>cp1_y</em>, <em>cp2_x</em>, <em>cp2_y</em>, <em>stop_x</em>, <em>stop_y</em>)</code>.</p>
@@ -295,7 +301,7 @@ bezier(
         <script src="p5js-scripts/p5-bezier-playground.js"></script>
     </section>
 
-    <h2>Text</h2>
+    <h2 id="text">Text</h2>
 
     <section>
         <p>Use <code>text(<em>string</em>, <em>x</em>, <em>y</em>)</code> to draw text at coordinates (x, y).</p>

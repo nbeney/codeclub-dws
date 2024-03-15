@@ -7,7 +7,9 @@
     <title>P5 - Interactivity</title>
     <script src="../../custom-elements/custom-navbar.js"></script>
     <script src="../../custom-elements/custom-library.js"></script>
+    <script src="../../custom-elements/custom-toc.js" defer></script>
     <script type="module" src="../../custom-elements/custom-code-block.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.1/lib/p5.min.js"></script>
     <link rel="stylesheet" href="../../style.css">
     </head>
 
@@ -16,22 +18,223 @@
 
     <h1>P5 library - Interactivity</h1>
 
-    <ul>
-        <li>mouse_x & mouse_y</li>
-        <li>pmouse_x() & pmouse_y()</li>
-        <li>keyboard.key & keyboard.keyCode</li>
-        <li>Events:</li>
-        <ul>
-            <li>key_pressed()</li>
-            <li>key_released()</li>
-            <li>mouse_moved()</li>
-            <li>mouse_pressed()</li>
-            <li>mouse_released()</li>
-            <li>mouse_dragged()</li>
-        </ul>
-    </ul>
+    <aside>
+        <h2>Table of contents</h2>
+        <cc-toc></cc-toc>
+    </aside>
 
-    <cc-code-block>
+    <h2 id="mouse-coords">Mouse coordinates</h2>
+
+    <section>
+        <p>Use <code>mouse_x</code> and <code>mouse_y</code> to get the current coordinates of the mouse cursor.</p>
+        <cc-code-block>
+from p5 import *
+
+def setup():
+    size(300, 300)
+    background(240)
+
+def draw():
+    stroke_weight(2)
+    point(mouse_x, mouse_y)
+
+run()
+        </cc-code-block>
+        <div id="p5-mouse-curr"></div>
+        <script>
+            new p5(p => {
+                p.setup = function() {
+                    p.createCanvas(300, 300);
+                    p.background(240);
+                }
+
+                p.draw = function() {
+                    // Do nothing if the mouse is not in the canvas.
+                    if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
+                        return;
+                    }
+                    p.strokeWeight(2);
+                    p.point(p.mouseX, p.mouseY);
+                }
+
+                p.mousePressed = function() {
+                    // Do nothing if the mouse is not in the canvas.
+                    if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
+                        return;
+                    }
+                    
+                    p.background(240);
+                }
+            }, "p5-mouse-curr");
+        </script>
+        <p>Use <code>pmouse_x()</code> and <code>pmouse_y()</code> to get the previous coordinates of the mouse cursor.</p>
+        <cc-code-block>
+from p5 import *
+
+def setup():
+    size(300, 300)
+    background(240)
+
+def draw():
+    stroke_weight(2)
+    line(mouse_x, mouse_y, pmouse_x(), pmouse_y())
+
+run()
+        </cc-code-block>
+        <div id="p5-mouse-prev"></div>
+        <script>
+            new p5(p => {
+                p.setup = function() {
+                    p.createCanvas(300, 300);
+                    p.background(240);
+                }
+
+                p.draw = function() {
+                    // Do nothing if the mouse is not in the canvas.
+                    if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
+                        return;
+                    }
+                    
+                    p.strokeWeight(2);
+                    p.line(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY);
+                }
+
+                p.mousePressed = function() {
+                    // Do nothing if the mouse is not in the canvas.
+                    if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
+                        return;
+                    }
+                    
+                    p.background(240);
+                }
+            }, "p5-mouse-prev");
+        </script>
+    </section>
+
+    <h2 id="mouse-events">Mouse events</h2>
+
+    <section>
+        <p><code>mouse_moved</code></p>
+        <p><code>mouse_pressed</code></p>
+        <p><code>mouse_released</code></p>
+        <p><code>mouse_dragged</code></p>
+    </section>
+
+    <h2 id="keyboard-events">Keyboard events</h2>
+
+    <section>
+        <p><code>keyboard.key</code></p>
+        <p><code>keyboard.keyCode</code></p>
+        <p><code>key_pressed</code></p>
+        <p><code>key_released</code></p>
+    </section>
+
+    <h2 id="color-at-coords">Check a pixel's color</h2>
+
+    <section>
+        <cc-code-block>
+from p5 import *
+
+score = 0
+
+# We must use hex colors in uppercase here because will compare them with the get(x, y).hex property later.
+COLOR_OUTER = "#0000FF"
+COLOR_INNER = "#FFFFFF"
+COLOR_CENTER = "#FF0000"
+
+def setup():
+    size(300, 300)
+
+def draw():
+    background(240)
+    text(f"Score: {score}", 10, 20)
+    draw_target()
+
+def mouse_pressed():
+    global score
+
+    color = get(mouse_x, mouse_y)
+
+    if color.hex == COLOR_OUTER:
+        score += 1
+    elif color.hex == COLOR_INNER:
+        score += 5
+    elif color.hex == COLOR_CENTER:
+        score += 10
+
+def draw_target():
+    push_style()
+    no_stroke()
+    fill(COLOR_OUTER)
+    circle(width/2, height/2, width*0.8)
+    fill(COLOR_INNER)
+    circle(width/2, height/2, width*0.5)
+    fill(COLOR_CENTER)
+    circle(width/2, height/2, width*0.2)
+    pop_style()
+
+run()
+        </cc-code-block>
+        <div id="p5-get"></div>
+        <script>
+            new p5(p => {
+                let score = 0;
+                let color1 = p.color(0, 0, 255);
+                let color2 = p.color(255, 255, 255);
+                let color3 = p.color(255, 0, 0);
+
+                p.setup = function() {
+                    p.createCanvas(300, 300);
+                }
+
+                p.draw = function() {
+                    p.background(240);
+                    p.text(`Score = ${score}`, 10, 10);
+                    draw_target();
+                }
+
+                p.mousePressed = function() {
+                    // Do nothing if the mouse is not in the canvas.
+                    if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
+                        return;
+                    }
+
+                    let c = p.get(p.mouseX, p.mouseY);
+
+                    if (sameColor(c, color1)) {
+                        score += 1;
+                    } else if (sameColor(c, color2)) {
+                        score += 5;
+                    } else if (sameColor(c, color3)) {
+                        score += 10;
+                    }
+                }
+
+                function draw_target() {
+                    p.push();
+                    p.noStroke();
+                    p.fill(color1);
+                    p.circle(p.width/2, p.height/2, p.width*0.8);
+                    p.fill(color2);
+                    p.circle(p.width/2, p.height/2, p.width*0.5);
+                    p.fill(color3);
+                    p.circle(p.width/2, p.height/2, p.width*0.2);
+                    p.pop();
+                }
+
+                function sameColor(c1, c2) {
+                    return c1[0] === p.red(c2) && c1[1] === p.green(c2) && c1[2] === p.blue(c2);
+                }   
+            }, "p5-get");
+        </script>
+    </section>
+
+    <h2 id="test-program">Test program</h2>
+
+    <section>
+        <details class="show-me">
+            <summary>Show me</summary>
+            <cc-code-block>
 from p5 import *
 
 def setup():
@@ -100,7 +303,9 @@ def mouse_wheel():
     print(f"mouse_wheel - mx={mx:.0f}, my={my:.0f}, pmx={pmx:.0f}, pmy={pmy:.0f}")
 
 run()
-    </cc-code-block>
+            </cc-code-block>
+        </details>
+    </section>
 
 </body>
 
