@@ -180,6 +180,79 @@ class ColorDot:
 
 run()
         </cc-code-block>
+        <div id="p5-mouse-events"></div>
+        <script>
+            new p5(p => {
+                let dots = [];
+                let draggedDot = null;
+
+                p.setup = function() {
+                    p.createCanvas(300, 300);
+                    dots.push(new ColorDot(p.width*1/4, p.height/2, p.width/5, 0));
+                    dots.push(new ColorDot(p.width*1/2, p.height/2, p.width/5, 120));
+                    dots.push(new ColorDot(p.width*3/4, p.height/2, p.width/5, 240));
+                }
+
+                p.draw = function() {
+                    p.background(240);
+                    for (let dot of dots) {
+                        dot.draw();
+                    }
+                }
+
+                p.mouseMoved = function() {
+                    for (let dot of dots) {
+                        dot.highlighted = dot.contains(p.mouseX, p.mouseY);
+                    }
+                }
+
+                p.mousePressed = function() {
+                    for (let dot of dots) {
+                        if (dot.contains(p.mouseX, p.mouseY)) {
+                            draggedDot = dot;
+                        }
+                    }
+                }
+
+                p.mouseReleased = function() {
+                    draggedDot = null;
+                }
+
+                p.mouseDragged = function() {
+                    if (draggedDot) {
+                        draggedDot.moveTo(p.mouseX, p.mouseY);
+                    }
+                }
+
+                class ColorDot {
+                    constructor(x, y, diameter, hue) {
+                        this.x = x;
+                        this.y = y;
+                        this.diameter = diameter;
+                        this.hue = hue;
+                        this.highlighted = false;
+                    }
+
+                    draw() {
+                        p.push();
+                        p.colorMode(p.HSB);
+                        p.fill(this.hue, 100, 100, this.highlighted ? 1 : 0.6);
+                        p.noStroke();
+                        p.circle(this.x, this.y, this.diameter);
+                        p.pop();
+                    }
+
+                    contains(x, y) {
+                        return p.dist(this.x, this.y, x, y) <= this.diameter/2;
+                    }
+
+                    moveTo(x, y) {
+                        this.x = x;
+                        this.y = y;
+                    }
+                }
+            }, "p5-mouse-events");
+        </script>
     </section>
 
     <h2 id="keyboard-events">Keyboard events</h2>
