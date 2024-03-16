@@ -118,6 +118,68 @@ run()
         <p><code>mouse_pressed</code></p>
         <p><code>mouse_released</code></p>
         <p><code>mouse_dragged</code></p>
+        <cc-code-block>
+from p5 import *
+
+dots = []  # list of dots to draw on the screen
+dragged_dot = None  # the dot being dragged
+
+def setup():
+    size(300, 300)
+
+    # Create three dots and add them to the list.
+    dots.append(ColorDot(width*1/4, height/2, width/5, 0))  # red
+    dots.append(ColorDot(width*1/2, height/2, width/5, 120))  # green
+    dots.append(ColorDot(width*3/4, height/2, width/5, 240))  # blue
+
+def draw():
+    background(240)
+    for dot in dots:
+        dot.draw()
+
+def mouse_moved():
+    for dot in dots:
+        dot.highlighted = dot.contains(mouse_x, mouse_y)
+
+def mouse_pressed():
+    global dragged_dot
+    for dot in dots:
+        if dot.contains(mouse_x, mouse_y):
+            dragged_dot = dot
+
+def mouse_released():
+    global dragged_dot
+    dragged_dot = None
+
+def mouse_dragged():
+    if dragged_dot:
+        dragged_dot.move_to(mouse_x, mouse_y)
+
+class ColorDot:
+    def __init__(self, x, y, diameter, hue):
+        self.x = x
+        self.y = y
+        self.diameter = diameter
+        self.hue = hue
+        self.highlighted = False
+
+    def draw(self):
+        push_style()
+        color_mode(HSB)
+        fill(self.hue, 100, 100, 1 if self.highlighted else 0.6)
+        no_stroke()
+        circle(self.x, self.y, self.diameter)
+        pop_style()
+
+    def contains(self, x, y):
+        return dist(self.x, self.y, x, y) <= self.diameter/2
+
+    def move_to(self, x, y):
+        self.x = x
+        self.y = y
+
+run()
+        </cc-code-block>
     </section>
 
     <h2 id="keyboard-events">Keyboard events</h2>
