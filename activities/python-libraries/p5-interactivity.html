@@ -129,7 +129,7 @@ def setup():
     size(300, 300)
 
     # Create three dots and add them to the list.
-    dots.append(ColorDot(width*1/4, height/2, width/5, 0))  # red
+    dots.append(ColorDot(width*1/4, height/2, width/5, 0))    # red
     dots.append(ColorDot(width*1/2, height/2, width/5, 120))  # green
     dots.append(ColorDot(width*3/4, height/2, width/5, 240))  # blue
 
@@ -327,11 +327,6 @@ run()
                 }
 
                 p.draw = function() {
-                    // For illustration only, because we cannot catch keyboards event when the canvas is not focused.
-                    // msgAngleRad = p.map(Math.sin(p.frameCount / 50), -1, +1, -p.QUARTER_PI, +p.QUARTER_PI);
-                    // msgSize = p.map(Math.sin(p.frameCount / 70), -1, +1, 30, 80);
-                    // msgColor = COLORS[Math.floor(p.frameCount / 120) % COLORS.length];
-
                     p.background(240);
                     p.push();
                     p.translate(p.width/2, p.height/2);
@@ -339,6 +334,7 @@ run()
                     p.fill(msgColor);
                     p.textAlign(p.CENTER, p.CENTER);
                     p.textSize(msgSize);
+                    p.textFont("Arial");
                     p.text(msgText, 0, 0);
                     p.pop();
                 }
@@ -364,7 +360,7 @@ run()
                 }
             }, "p5-keyboard-events");
         </script>
-        <p><br><strong>Challenge</strong>: Modify the program to make the text keep spinning while the left or right arrow is down.</p>
+        <p><br><strong>Challenge</strong>: Modify the program to keep the text spinning until the left or right arrow key is released.</p>
     </section>
 
     <h2 id="color-at-coords">Check a pixel's color</h2>
