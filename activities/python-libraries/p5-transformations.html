@@ -44,6 +44,20 @@
         p.pop();
     }
 
+    function angle(p, x, y, r, startAngle, stopAngle) {
+        p.push();
+        p.fill(0, 0, 255, 40);
+        p.stroke("blue");
+        p.strokeWeight(3);
+        p.arc(0, 0, r, r, startAngle, stopAngle, p.ARC);
+        p.rotate(stopAngle);
+        p.translate(r/2, 0);
+        p.rotate(p.HALF_PI);
+        p.line(0, 0, -10, -10);
+        p.line(0, 0, -10, 10);
+        p.pop();
+     }
+
     function dot(p, x, y) {
         p.push();
         p.stroke("black");
@@ -150,8 +164,8 @@ run()
                 p.draw = function () {
                     p.background(240);
                     grid(p, 0, 0, 300, 300, 6, 6, gridColorOn);
-                    dot(p, 50, 50);
                     house(p, p.LEFT, p.TOP);
+                    dot(p, 50, 50);
                 };
             }, "p5-intro");
         </script>
@@ -214,7 +228,7 @@ def house(halign=CENTER, valign=CENTER):
         </details>
     </section>
 
-    <h2 id="translate">Translation</h2>
+    <h2 id="translate">Translate = Move the grid</h2>
 
     <section>
         <p>...</p>
@@ -265,8 +279,8 @@ run()
                     arrow(p, 0, 0, offsetX, offsetY);
                     p.translate(offsetX, offsetY);
                     grid(p, 0, 0, 300, 300, 6, 6, gridColorOn);
-                    dot(p, 50, 50);
                     house(p, p.LEFT, p.TOP);
+                    dot(p, 50, 50);
                 };
 
                 function updateOffsets() {
@@ -287,7 +301,7 @@ run()
         </script>
     </section>
 
-    <h2 id="rotate">Rotation</h2>
+    <h2 id="rotate">Rotate = Turn the grid</h2>
 
     <section>
         <p>...</p>
@@ -328,10 +342,11 @@ run()
 
                     p.background(240);
                     grid(p, 0, 0, 300, 300, 6, 6, gridColorOff);
+                    angle(p, 0, 0, 550, 0, angleRad);
                     p.rotate(angleRad);
                     grid(p, 0, 0, 300, 300, 6, 6, gridColorOn);
-                    dot(p, 50, 50);
                     house(p, p.LEFT, p.TOP);
+                    dot(p, 50, 50);
                 };
 
                 function updateAngle() {
@@ -351,7 +366,7 @@ run()
         </script>
     </section>
 
-    <h2 id="scale">Scaling</h2>
+    <h2 id="scale">Scale = Resize the grid</h2>
 
     <section>
         <p>...</p>
@@ -416,14 +431,14 @@ run()
                     grid(p, 0, 0, 300, 300, 6, 6, gridColorOff);
                     p.scale(scaleX, scaleY);
                     grid(p, 0, 0, 300, 300, 6, 6, gridColorOn);
-                    dot(p, 50, 50);
                     house(p, p.LEFT, p.TOP);
+                    dot(p, 50, 50);
                 };
             }, "p5-scale-grow");
         </script>
     </section>
 
-    <h2 id="order">Combining transformations</h2>
+    <h2 id="order">Combine transformations</h2>
 
     <section>
         <p>...</p>
@@ -446,7 +461,7 @@ run()
         </script>
     </section>
 
-    <h2 id="save-restore">Context saving and restoring</h2>
+    <h2 id="save-restore">Save and restore the grid</h2>
 
     <section>
         <p>...</p>

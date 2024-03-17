@@ -7,9 +7,7 @@ customElements.define('cc-toc', class extends HTMLElement {
         const toc = document.createElement('ul');
         toc.className = 'toc';
         const headings = document.querySelectorAll('h2[id]');
-        console.log(headings);
         for (const heading of headings) {
-            console.log(heading);
             const li = document.createElement('li');
             li.className = 'toc-entry';
             const a = document.createElement('a');
