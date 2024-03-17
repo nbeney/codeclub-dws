@@ -244,12 +244,12 @@ run()
                     p.createCanvas(300, 300);
 
                     let divContainerX = p.createDiv();
-                    sliderOffsetX = p.createSlider(-150, 350, 100, 5).parent(divContainerX);
+                    sliderOffsetX = p.createSlider(-300, 350, 100, 5).parent(divContainerX);
                     p.createSpan("   ").parent(divContainerX); // spacer
                     labelOffsetX = p.createSpan("???").parent(divContainerX);
 
                     let divContainerY = p.createDiv();
-                    sliderOffsetY = p.createSlider(-150, 350, 100, 5).parent(divContainerY);
+                    sliderOffsetY = p.createSlider(-300, 350, 100, 5).parent(divContainerY);
                     p.createSpan("   ").parent(divContainerY); // spacer
                     labelOffsetY = p.createSpan("???").parent(divContainerY);
                 };
@@ -376,19 +376,34 @@ run()
             new p5((p) => {
                 let sliderScaleX, labelScaleX;
                 let sliderScaleY, labelScaleY;
+                let checkboxAspectRatio;
 
                 p.setup = function () {
                     p.createCanvas(300, 300);
 
                     let divContainerX = p.createDiv();
-                    sliderScaleX = p.createSlider(0.0, 3, 1.5, 0.1).parent(divContainerX);
+                    sliderScaleX = p.createSlider(0.0, 4, 1.5, 0.1).parent(divContainerX);
                     p.createSpan("   ").parent(divContainerX); // spacer
                     labelScaleX = p.createSpan("???").parent(divContainerX);
+                    sliderScaleX.changed(() => {
+                        console.log("sliderScaleX changed", sliderScaleX.value());
+                        if (checkboxAspectRatio.checked()) {
+                            sliderScaleY.value(sliderScaleX.value());
+                        }
+                    });
 
                     let divContainerY = p.createDiv();
-                    sliderScaleY = p.createSlider(0.0, 3, 1.5, 0.1).parent(divContainerY);
+                    sliderScaleY = p.createSlider(0.0, 4, 1.5, 0.1).parent(divContainerY);
                     p.createSpan("   ").parent(divContainerY); // spacer
                     labelScaleY = p.createSpan("???").parent(divContainerY);
+                    sliderScaleY.changed(() => {
+                        console.log("sliderScaleY changed", sliderScaleY.value());
+                        if (checkboxAspectRatio.checked()) {
+                            sliderScaleX.value(sliderScaleY.value());
+                        }
+                    });
+
+                    checkboxAspectRatio = p.createCheckbox("Preserve aspect ratio", true);
                 };
 
                 p.draw = function () {
@@ -405,58 +420,6 @@ run()
                     house(p, p.LEFT, p.TOP);
                 };
             }, "p5-scale-grow");
-        </script>
-        <p>...</p>
-        <cc-code-block>
-from p5 import *
-
-def setup():
-    size(300, 300)
-
-def draw():
-    background(240)
-    scale(0.8, 0.8)
-    house(LEFT, TOP)
-
-def house(halign=CENTER, valign=CENTER):
-    ...
-
-run()
-        </cc-code-block>
-        <div id="p5-scale-shrink"></div>
-        <script>
-            new p5((p) => {
-                let sliderScaleX, labelScaleX;
-                let sliderScaleY, labelScaleY;
-
-                p.setup = function () {
-                    p.createCanvas(300, 300);
-
-                    let divContainerX = p.createDiv();
-                    sliderScaleX = p.createSlider(0.0, 3, 0.75, 0.1).parent(divContainerX);
-                    p.createSpan("   ").parent(divContainerX); // spacer
-                    labelScaleX = p.createSpan("???").parent(divContainerX);
-
-                    let divContainerY = p.createDiv();
-                    sliderScaleY = p.createSlider(0.0, 3, 0.75, 0.1).parent(divContainerY);
-                    p.createSpan("   ").parent(divContainerY); // spacer
-                    labelScaleY = p.createSpan("???").parent(divContainerY);
-                };
-
-                p.draw = function () {
-                    let scaleX = sliderScaleX.value();
-                    labelScaleX.html(`X scale = ${scaleX}`);
-                    let scaleY = sliderScaleY.value();
-                    labelScaleY.html(`Y scale = ${scaleY}`);
-
-                    p.background(240);
-                    grid(p, 0, 0, 300, 300, 6, 6, gridColorOff);
-                    p.scale(scaleX, scaleY);
-                    grid(p, 0, 0, 300, 300, 6, 6, gridColorOn);
-                    dot(p, 50, 50);
-                    house(p, p.LEFT, p.TOP);
-                };
-            }, "p5-scale-shrink");
         </script>
     </section>
 
