@@ -15,7 +15,7 @@
             p.createSpan("   ").parent(divContainer); // spacer
             labelWidth = p.createSpan("???").parent(divContainer);
 
-            sliderWidthRel.changed(() => {
+            sliderWidthRel.input(() => {
                 theWidth = sliderWidthRel.value();
                 sliderWidthAbs.value(theWidth);
             });
@@ -52,7 +52,7 @@
             p.createSpan("   ").parent(divContainer); // spacer
             labelWidth = p.createSpan("???").parent(divContainer);
 
-            sliderWidthAbs.changed(() => {
+            sliderWidthAbs.input(() => {
                 theWidth = sliderWidthAbs.value();
                 sliderWidthRel.value(theWidth);
             });
