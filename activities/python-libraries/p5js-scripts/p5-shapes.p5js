@@ -301,6 +301,11 @@ function generate_arc() {
 }
 
 function generate_shape() {
+  generate_shape_simple();
+  generate_shape_complex();
+}
+
+function generate_shape_simple() {
   clear();
   background(255);
   draw_grid();
@@ -326,6 +331,37 @@ function generate_shape() {
   draw_point(5, 6, BOTTOM);
   draw_point(2, 6, BOTTOM);
   saveCanvas("p5-shape.png");
+}
+
+function generate_shape_complex() {
+  clear();
+  background(255);
+  draw_grid();
+  push();
+  stroke("red");
+  beginShape()
+  // Outer square - clockwise
+  vertex(1, 1)
+  vertex(6, 1)
+  vertex(6, 6)
+  vertex(1, 6)
+  // Hole - counter-clockwise
+  beginContour()
+  vertex(2, 2)
+  vertex(2, 5)
+  vertex(5, 5)
+  vertex(5, 2)
+  endContour()
+  // Inner square - clockwise
+  beginContour()
+  vertex(3, 3)
+  vertex(4, 3)
+  vertex(4, 4)
+  vertex(3, 4)
+  endContour()
+  endShape(CLOSE)
+  pop();
+  saveCanvas("p5-shape-complex.png");
 }
 
 function generate_bezier() {

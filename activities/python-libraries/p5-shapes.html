@@ -257,7 +257,7 @@ arc(4, 2, 5, 7, radians(45), radians(180), PIE)
         <img src="p5-images/p5-arc-PIE.png" alt="arc-PIE">
     </section>
 
-    <h2 id="shape">Shape</h2>
+    <h2 id="shape">Shape = Polygon</h2>
 
     <section>
         <p>To draw an arbitrary polygon, start with <code>begin_shape()</code>, then add as many points as needed with <code>vertex(<em>x</em>, <em>y</em>)</code>, and finish with <code>end_shape(CLOSE)</code>.</p>
@@ -275,6 +275,39 @@ vertex(2, 6)
 end_shape(CLOSE)
         </cc-code-block>
         <img src="p5-images/p5-shape.png" alt="shape">
+        <p><br>It is also possible to draw complex polygons with holes and inner shapes:</p>
+        <ul>
+            <li>start with <code>begin_shape()</code></li>
+            <li>add the <strong>outer shape</strong> with <code>vertex</code> in <strong>clockwise</strong> order</li>
+            <li>add each <strong>hole</strong> with <code>vertex</code> in <strong>counter-clockwise</strong> order between <code>begin_contour()</code> and <code>end_contour()</code></li>
+            <li>add each <strong>inner shape</strong> with <code>vertex</code> in <strong>clockwise</strong> order between <code>begin_contour()</code> and <code>end_contour()</code></li>
+            <li>end with <code>end_shape(CLOSE)</code></li>
+        </ul>
+        <p>For example the following code will draw an &quot;O&quot; with a dot in the middle:</p>
+        <cc-code-block>
+begin_shape()
+# Outer square - clockwise
+vertex(1, 1)
+vertex(6, 1)
+vertex(6, 6)
+vertex(1, 6)
+# Hole - counter-clockwise
+begin_contour()
+vertex(2, 2)
+vertex(2, 5)
+vertex(5, 5)
+vertex(5, 2)
+end_contour()
+# Inner square - clockwise
+begin_contour()
+vertex(3, 3)
+vertex(4, 3)
+vertex(4, 4)
+vertex(3, 4)
+end_contour()
+end_shape(CLOSE)
+    </cc-code-block>
+        <img src="p5-images/p5-shape-complex.png" alt="shape-complex">
     </section>
 
     <h2 id="bezier">Bezier</h2>
