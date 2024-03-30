@@ -362,6 +362,69 @@ font_height = text_ascent() + text_descent()
         <p>
             <code>text_width(<em>string</em>)</code> returns the width of the string in the current font and size.
         </p>
+        <p>Here is an example that uses font metrics to draw a box around some text.</p>
+        <cc-code-block>
+from p5 import *
+
+TEXT = "I love P5!"
+
+def setup():
+    size(300, 300)
+    background(240)
+
+    text_align(CENTER, CENTER)
+    text_font("Cursive")
+    text_size(40)
+
+    padding = 20
+    w = text_width(TEXT) + 2 * padding
+    h = text_ascent() + text_descent() + 2 * padding
+
+    translate(width / 2, height / 2)
+
+    stroke("red")
+    stroke_weight(5)
+    fill(255)
+    rect_mode(CENTER)
+    rect(0, 0, w, h, 10)
+
+    no_stroke()
+    fill(0)
+    text(TEXT, 0, 0)
+
+run()
+        </cc-code-block>
+        <div id="text-box"></div>
+        <script>
+            new p5((p) => {
+                const TEXT = "I love P5!";
+
+                p.setup = function () {
+                    p.createCanvas(300, 300);
+                    p.background(240);
+
+                    p.textAlign(p.CENTER, p.CENTER);
+                    p.textFont("Comic Sans MS");
+                    p.textSize(40);
+
+                    const padding = 20;
+                    const w = p.textWidth(TEXT) + 2 * padding;
+                    const h = p.textAscent() + p.textDescent() + 2 * padding;
+
+                    p.translate(p.width / 2, p.height / 2);
+
+                    p.stroke("red");
+                    p.strokeWeight(5);
+                    p.fill(255);
+                    p.rectMode(p.CENTER);
+                    p.rect(0, 0, w, h, 10);
+
+                    p.noStroke();
+                    p.fill(0);
+                    p.text(TEXT, 0, 0);
+                };
+            }, "text-box");
+        </script>
     </section>
 </body>
 
