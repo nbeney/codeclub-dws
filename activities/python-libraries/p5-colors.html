@@ -29,36 +29,6 @@
     <section>
         <p>...</p>
 
-        <cc-code-block>
-from p5 import *
-
-def setup():
-    size(300, 300)
-    background(191)  # light grey
-    fill(255)  # white
-    stroke(0)  # black
-    stroke_weight(10)
-    circle(width / 2, height / 2, width * 0.75)
-
-run()
-        </cc-code-block>
-
-        <div id="p5-greyscale-code"></div>
-        <script>
-            new p5(p => {
-                p.setup = () => {
-                    p.createCanvas(350, 350);
-                    p.background(191);
-                    p.fill(255);
-                    p.stroke(0);
-                    p.strokeWeight(10);
-                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
-                };
-            }, "p5-greyscale-code");
-        </script>
-
-        <p>...</p>
-
         <div id="p5-greyscale-tool"></div>
         <script>
             new p5(p => {
@@ -130,11 +100,45 @@ run()
                 }
             }, "p5-greyscale-tool");
         </script>
+
+        <p>...</p>
+
+        <cc-code-block>
+from p5 import *
+
+def setup():
+    size(300, 300)
+    background(191)  # light grey
+    fill(255)  # white
+    stroke(0)  # black
+    stroke_weight(10)
+    circle(width / 2, height / 2, width * 0.75)
+
+run()
+        </cc-code-block>
+
+        <div id="p5-greyscale-code"></div>
+        <script>
+            new p5(p => {
+                p.setup = () => {
+                    p.createCanvas(350, 350);
+                    p.background(191);
+                    p.fill(255);
+                    p.stroke(0);
+                    p.strokeWeight(10);
+                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
+                };
+            }, "p5-greyscale-code");
+        </script>
     </section>
 
     <h2 id="named">Named colors</h2>
 
     <section>
+        <p>...</p>
+
+        <div id="named-colors-table"></div>
+
         <p>...</p>
 
         <cc-code-block>
@@ -164,44 +168,11 @@ run()
                 };
             }, "p5-named-code");
         </script>
-
-        <p>...</p>
-        <div id="named-colors-table"></div>
     </section>
 
     <h2 id="rgb">RGB colors</h2>
 
     <section>
-        <p>...</p>
-        <cc-code-block>
-from p5 import *
-
-def setup():
-    size(300, 300)
-    color_mode(RGB)  # THIS LINE IS OPTIONAL, RGB MODE IS THE DEFAULT
-    background(212, 247, 212)  # or "#D4F7D4", some light green
-    fill(85, 158, 84)  # or "#559E54", some dark green
-    stroke(154, 7, 148)  # or "#9A0794", some purple
-    stroke_weight(10)
-    circle(width / 2, height / 2, width * 0.75)
-
-run()
-        </cc-code-block>
-
-        <div id="p5-rgb-code"></div>
-        <script>
-            new p5(p => {
-                p.setup = () => {
-                    p.createCanvas(350, 350);
-                    p.background(212, 247, 212);
-                    p.fill(85, 158, 84);
-                    p.stroke(154, 7, 148);
-                    p.strokeWeight(10);
-                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
-                };
-            }, "p5-rgb-code");
-        </script>
-
         <p>...</p>
 
         <div id="p5-rgb-tool"></div>
@@ -305,6 +276,37 @@ run()
                     p.legendB.html(formatValue(p.sliderB.value()));
                 }
             }, "p5-rgb-tool");
+        </script>
+
+        <p>...</p>
+                
+        <cc-code-block>
+        from p5 import *
+
+        def setup():
+        size(300, 300)
+        color_mode(RGB)  # THIS LINE IS OPTIONAL, RGB MODE IS THE DEFAULT
+        background(212, 247, 212)  # or "#D4F7D4", some light green
+        fill(85, 158, 84)  # or "#559E54", some dark green
+        stroke(154, 7, 148)  # or "#9A0794", some purple
+        stroke_weight(10)
+        circle(width / 2, height / 2, width * 0.75)
+
+        run()
+        </cc-code-block>
+
+        <div id="p5-rgb-code"></div>
+        <script>
+            new p5(p => {
+                p.setup = () => {
+                    p.createCanvas(350, 350);
+                    p.background(212, 247, 212);
+                    p.fill(85, 158, 84);
+                    p.stroke(154, 7, 148);
+                    p.strokeWeight(10);
+                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
+                };
+            }, "p5-rgb-code");
         </script>
     </section>
 
@@ -428,38 +430,6 @@ run()
 
         <p>...</p>
 
-        <cc-code-block>
-from p5 import *
-
-def setup():
-    size(300, 300)
-    color_mode(HSB)  # DO NOT FORGET THIS LINE
-    background(212, 247, 212)  # some blue
-    fill(85, 158, 84)  # some green
-    stroke(154, 7, 148)  # some white
-    stroke_weight(10)
-    circle(width / 2, height / 2, width * 0.75)
-
-run()
-        </cc-code-block>
-
-        <div id="p5-hsb-code"></div>
-        <script>
-            new p5(p => {
-                p.setup = () => {
-                    p.createCanvas(350, 350);
-                    p.colorMode(p.HSB, 360, 100, 100);
-                    p.background(212, 247, 212);
-                    p.fill(85, 158, 84);
-                    p.stroke(154, 7, 148);
-                    p.strokeWeight(10);
-                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
-                };
-            }, "p5-hsb-code");
-        </script>
-
-        <p>...</p>
-
         <div id="p5-hsb-tool"></div>
         <script>
             new p5(p => {
@@ -550,9 +520,41 @@ run()
                 }
             }, "p5-hsb-tool");
         </script>
+
+        <p>...</p>
+
+        <cc-code-block>
+        from p5 import *
+
+        def setup():
+        size(300, 300)
+        color_mode(HSB)  # DO NOT FORGET THIS LINE
+        background(212, 247, 212)  # some blue
+        fill(85, 158, 84)  # some green
+        stroke(154, 7, 148)  # some white
+        stroke_weight(10)
+        circle(width / 2, height / 2, width * 0.75)
+
+        run()
+        </cc-code-block>
+
+        <div id="p5-hsb-code"></div>
+        <script>
+            new p5(p => {
+                p.setup = () => {
+                    p.createCanvas(350, 350);
+                    p.colorMode(p.HSB, 360, 100, 100);
+                    p.background(212, 247, 212);
+                    p.fill(85, 158, 84);
+                    p.stroke(154, 7, 148);
+                    p.strokeWeight(10);
+                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
+                };
+            }, "p5-hsb-code");
+        </script>
     </section>
 
-    <h2 id="transparency">Transparency</h2>
+    <h2 id="transparency">Transparency (alpha = opacity)</h2>
 
     <section>
 
@@ -609,22 +611,32 @@ def setup():
 
 def draw():
     background(240)
-
-    # Red rectangle
-    fill(255, 0, 0, 255)
     no_stroke()
-    rect(width * 0.4, 0, width * 0.2, height)
 
-    # Blue circle
-    alpha = map(cos(radians(frame_count)), -1, +1, 0, 255)
-    fill(0, 0, 255, alpha)
+    # Trunk (opaque)
+    fill("maroon")
+    rect(width * 0.4, height / 4, width * 0.2, height)
+
+    # Leaves (opaque)
+    fill("darkgreen")
     circle(width / 2, height / 2, width * 0.75)
+
+    # Apples
+    alpha = map(cos(radians(frame_count)), -1, +1, 0, 255)
+    fill(255, 0, 0, alpha)
+    circle(86, 192, 25)
+    circle(157, 221, 25)
+    circle(211, 139, 25)
+    circle(94, 124, 25)
+    circle(154, 82, 25)
+    circle(145, 158, 25)
+    circle(205, 197, 25)
 
     # Text
     fill(0)
-    text(f"Alpha = {int(alpha)}", 10, 20)
+    text(f"Alpha = {int(alpha)}", 10, 10)
         
-run(frame_rate=10)
+run(frame_rate=15)
         </cc-code-block>
 
         <div id="p5-transparency-code"></div>
@@ -632,25 +644,37 @@ run(frame_rate=10)
             new p5(p => {
                 p.setup = () => {
                     p.createCanvas(350, 350);
-                    p.frameRate(10);
                 };
 
                 p.draw = () => {
                     p.background(240);
-
-                    // Red rectangle
-                    p.fill(255, 0, 0, 255);
                     p.noStroke();
-                    p.rect(p.width * 0.4, 0, p.width * 0.2, p.height);
 
-                    // Blue circle
-                    const alpha = p.map(p.cos(p.radians(p.frameCount)), -1, +1, 0, 255);
-                    p.fill(0, 0, 255, alpha);
+                    // Trunk (opaque)
+                    p.fill("maroon");
+                    p.rect(p.width * 0.4, p.height / 4, p.width * 0.2, p.height);
+
+                    // Leaves (opaque)
+                    p.fill("darkgreen");
                     p.circle(p.width / 2, p.height / 2, p.width * 0.75);
+
+                    // Apples (opacity changes with time)
+                    const alpha = p.map(p.cos(p.radians(p.frameCount)), -1, +1, 0, 255);
+                    p.fill(255, 0, 0, alpha);
+                    p.push();
+                    p.translate(25, 25);
+                    p.circle(86, 192, 30);
+                    p.circle(157, 221, 30);
+                    p.circle(211, 139, 30);
+                    p.circle(94, 124, 30);
+                    p.circle(154, 82, 30);
+                    p.circle(145, 158, 30);
+                    p.circle(205, 197, 30);
+                    p.pop();
 
                     // Text
                     p.fill(0);
-                    p.text(`Alpha = ${Math.round(alpha)}`, 10, 20);
+                    p.text(`Alpha = ${Math.round(alpha)}`, 10, 10);
                 };
             }, "p5-transparency-code");
         </script>
