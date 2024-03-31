@@ -614,14 +614,14 @@ def draw():
     no_stroke()
 
     # Trunk (opaque)
-    fill("maroon")
+    fill("brown")
     rect(width * 0.4, height / 4, width * 0.2, height)
 
     # Leaves (opaque)
-    fill("darkgreen")
+    fill("limegreen")
     circle(width / 2, height / 2, width * 0.75)
 
-    # Apples
+    # Apples (opacity changes with time)
     alpha = map(cos(radians(frame_count)), -1, +1, 0, 255)
     fill(255, 0, 0, alpha)
     circle(86, 192, 25)
@@ -636,7 +636,7 @@ def draw():
     fill(0)
     text(f"Alpha = {int(alpha)}", 10, 10)
         
-run(frame_rate=15)
+run()
         </cc-code-block>
 
         <div id="p5-transparency-code"></div>
@@ -651,11 +651,11 @@ run(frame_rate=15)
                     p.noStroke();
 
                     // Trunk (opaque)
-                    p.fill("maroon");
+                    p.fill("brown");
                     p.rect(p.width * 0.4, p.height / 4, p.width * 0.2, p.height);
 
                     // Leaves (opaque)
-                    p.fill("darkgreen");
+                    p.fill("limegreen");
                     p.circle(p.width / 2, p.height / 2, p.width * 0.75);
 
                     // Apples (opacity changes with time)
