@@ -12,7 +12,7 @@
     <script src="p5js-scripts/p5-named-colors.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.9.1/lib/p5.min.js"></script>
     <link rel="stylesheet" href="../../style.css">
-    </head>
+</head>
 
 <body class="container">
     <cc-navbar active="python-libraries" level="2" />
@@ -34,8 +34,16 @@
         <div id="p5-greyscale"></div>
         <script>
             new p5(p => {
+                function contrastColor(color) {
+                    const r = p.red(color);
+                    const g = p.green(color);
+                    const b = p.blue(color);
+                    const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+                    return luminance > 0.5 ? 'black' : 'white';
+                }
+                
                 p.setup = () => {
-                    p.createCanvas(300, 150);
+                    p.createCanvas(350, 150);
                     p.slider = makeSlider("Grey", 0, 255, 128, 1);
                 };
 
@@ -45,19 +53,20 @@
                 };
 
                 function gradient() {
-                    const N = 11;
+                    const N = 9;
                     const w = p.width / N;
                     const h = p.height / 2;
                     for (let i = 0; i <= N; i++) {
                         const level = Math.round(p.map(i, 0, N - 1, 0, 255));
+                        const color = p.color(level);
                         p.push();
                         p.translate(i * w, 0);
-                        p.fill(level);
+                        p.fill(color);
                         p.rect(0, 0, w, h);
                         p.translate(w / 2, h / 2);
                         p.rotate(-p.HALF_PI);
                         p.textAlign(p.CENTER, p.CENTER);
-                        p.fill((level < 160) ? 255 : 0);
+                        p.fill(contrastColor(color));
                         p.text(level, 0, 0);
                         p.pop();
                     }
@@ -65,11 +74,12 @@
 
                 function patch() {
                     const level = p.slider.value();
+                    const color = p.color(level);
                     p.push();
-                    p.fill(level);
+                    p.fill(color);
                     p.rect(1, p.height / 2, p.width - 1, p.height / 2 - 1);
                     p.translate(p.width / 2, p.height * 3 / 4);
-                    p.fill((level < 160) ? 255 : 0);
+                    p.fill(contrastColor(color));
                     p.text(level, 0, 0);
                     p.pop();
                 }
@@ -114,8 +124,16 @@
         <div id="p5-rgb"></div>
         <script>
             new p5(p => {
+                function contrastColor(color) {
+                    const r = p.red(color);
+                    const g = p.green(color);
+                    const b = p.blue(color);
+                    const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+                    return luminance > 0.5 ? 'black' : 'white';
+                }
+                
                 p.setup = () => {
-                    p.createCanvas(300, 100);
+                    p.createCanvas(350, 100);
                     makeColorPatches();
                     makeSliders();
                 };
@@ -124,13 +142,13 @@
                     const r = p.sliderR.value();
                     const g = p.sliderG.value();
                     const b = p.sliderB.value();
+                    const color = p.color(r, g, b);
                     const legend = `${r},${g},${b}\n\n${toHexColor(r, g, b)}`;
-                    const avg = (r + g + b) / 3;
 
-                    p.fill(r, g, b);
+                    p.fill(color);
                     p.rect(0, 0, p.width, p.height);
                     p.translate(p.width / 2, p.height / 2);
-                    p.fill((avg > 150) ? 0 : 255);
+                    p.fill(contrastColor(color));
                     p.textAlign(p.CENTER, p.CENTER);
                     p.textSize(p.height / 6);
                     p.text(legend, 0, 0);
@@ -215,16 +233,44 @@
         <div id="p5-color-wheel"></div>
         <script>
             new p5(p => {
+                function contrastColor(color) {
+                    const r = p.red(color);
+                    const g = p.green(color);
+                    const b = p.blue(color);
+                    const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+                    return luminance > 0.5 ? 'black' : 'white';
+                }
+                
                 p.setup = () => {
-                    p.createCanvas(300, 300);
+                    p.createCanvas(350, 350);
+                    drawWheel(0);
                 };
 
-                p.draw = () => {
+                p.mousePressed = () => {
+                    update();
+                };
+
+                p.mouseDragged = () => {
+                    update();
+                };
+
+                function update() {
+                    // Do nothing if the mouse is not in the canvas.
+                    if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
+                        return;
+                    }
+
                     const angle = Math.round(p.degrees(p.atan2(p.mouseY - p.height / 2, p.mouseX - p.width / 2)));
                     const hue = (angle + 360) % 360;
-                    const contrastColor = (hue < 210 || hue > 280) ? 0 : 255;
+                    drawWheel(hue);
+                }
+
+                function drawWheel(hue) {
+                    p.push();
 
                     p.colorMode(p.HSB, 360, 100, 100);
+                    const color = p.color(hue, 100, 100);
+
                     p.noStroke();
                     p.translate(p.width / 2, p.height / 2);
                     const N = 120;
@@ -238,15 +284,10 @@
                     p.fill(255);
                     p.circle(0, 0, p.width * 0.5);
 
-                    // Exit if mouse is outside the canvas
-                    if (p.mouseX < 0 || p.mouseX >= p.width || p.mouseY < 0 || p.mouseY >= p.height) {
-                        return;
-                    }
-
-                    p.fill(hue, 100, 100);
+                    p.fill(color);
                     p.circle(0, 0, p.width * 0.35);
 
-                    p.fill(contrastColor);
+                    p.fill(contrastColor(color));
                     p.textAlign(p.CENTER, p.CENTER);
                     p.textSize(24);
                     p.text(`H = ${hue}`, 0, 0);
@@ -256,20 +297,70 @@
                     p.fill(255);
                     p.stroke(0);
                     p.circle(0, 0, p.width * 0.05);
-                };
+
+                    p.pop();
+                }
             }, "p5-color-wheel");
         </script>
 
-    <p>...</p>
+        <p>...</p>
 
-    <cc-code-block>
+        <div id="p5-color-line"></div>
+        <script>
+            new p5(p => {
+                function contrastColor(color) {
+                    const r = p.red(color);
+                    const g = p.green(color);
+                    const b = p.blue(color);
+                    const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+                    return luminance > 0.5 ? 'black' : 'white';
+                }
+                
+                p.setup = () => {
+                    p.createCanvas(350, 75);
+                    p.colorMode(p.HSB, 360, 100, 100);
+                    p.rectMode(p.CENTER);
+
+                    const w = p.width / 12;
+                    for (let hue = 0; hue < 360; hue += 30) {
+                        const x = hue / 360 * p.width + w / 2;
+                        const y = p.height / 2;
+                        const color = p.color(hue, 100, 100);
+
+                        p.push();
+                        // Color patch
+                        p.translate(x, y);
+                        p.fill(color);
+                        p.rect(0, 0, w, p.height);
+                        // Text
+                        p.rotate(-p.HALF_PI);
+                        p.fill(contrastColor(color));
+                        p.textAlign(p.CENTER, p.CENTER);
+                        p.text(hue, 0, 0);
+                        p.pop();
+                    }
+                };
+            }, "p5-color-line");
+        </script>
+
+        <p>...</p>
+
+        <cc-code-block>
 # ...
         </cc-code-block>
         <div id="p5-hsb"></div>
         <script>
             new p5(p => {
+                function contrastColor(color) {
+                    const r = p.red(color);
+                    const g = p.green(color);
+                    const b = p.blue(color);
+                    const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+                    return luminance > 0.5 ? 'black' : 'white';
+                }
+                
                 p.setup = () => {
-                    p.createCanvas(300, 100);
+                    p.createCanvas(350, 100);
                     makeColorPatches();
                     makeSliders();
                 };
@@ -278,13 +369,14 @@
                     const h = p.sliderH.value();
                     const s = p.sliderS.value();
                     const b = p.sliderB.value();
+                    const color = p.color(h, s, b);
                     const legend = `${h},${s},${b}`;
 
                     p.colorMode(p.HSB, 360, 100, 100);
-                    p.fill(h, s, b);
+                    p.fill(color);
                     p.rect(0, 0, p.width, p.height);
                     p.translate(p.width / 2, p.height / 2);
-                    p.fill((b > 50) ? 0 : 255);
+                    p.fill(contrastColor(color));
                     p.textAlign(p.CENTER, p.CENTER);
                     p.textSize(p.height / 6);
                     p.text(legend, 0, 0);
