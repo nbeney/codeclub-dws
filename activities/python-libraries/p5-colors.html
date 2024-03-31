@@ -680,16 +680,44 @@ run()
         </script>
     </section>
 
-    <h2 id="get">Get the color of a pixel</h2>
+    <h2 id="get">Check a pixel's color</h2>
 
     <section>
-        <p>...</p>
+        <p>
+            <code>get(<em>x</em>, <em>y</em>)</code> returns an object representing the color of the pixel at coordinates (x, y).
+            This object has the following properties:
+        </p>
+        <ul>
+            <li><code>hex</code>: the color in hexadecimal format</li>
+            <li><code>red</code>, <code>green</code>, <code>blue</code>: the color in RGB format</li>
+            <li><code>hue</code>, <code>saturation</code>, <code>brightness</code>: the color in HSB format</li>
+            <li><code>alpha</code>: the opacity of the color</li>
+        </ul>
+        <p>Here is a sample program:</p>
         <cc-code-block>
-# ...
+from p5 import *
+
+def setup():
+    size(300, 300)
+    background("salmon")
+    
+    color = get(width / 2, height / 2)
+    print(f"  hex: {color.hex}")
+    print(f"  rgb: {color.red}, {color.green}, {color.blue}")
+    print(f"  hsb: {color.hue:.0f}, {color.saturation:.0f}, {color.brightness:.0f}")
+    print(f"alpha: {color.alpha}")
+
+run()
+
+# OUTPUT:
+# ======
+#   hex: #FA8072
+#   rgb: 250, 128, 114
+#   hsb: 6, 93, 98
+# alpha: 255
         </cc-code-block>
-        <div id="p5-transparency"></div>
-        <script>
-        </script>
+
+        <p>Checking a pixel's color is used mainly for games and you can see an example in <a href="./p5-interactivity.html#color-at-coords">P5 library - Interactivity</a>.</p>
     </section>
 </body>
 
