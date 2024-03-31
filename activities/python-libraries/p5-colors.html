@@ -28,10 +28,38 @@
 
     <section>
         <p>...</p>
+
         <cc-code-block>
-# ...
+from p5 import *
+
+def setup():
+    size(300, 300)
+    background(191)  # light grey
+    fill(255)  # white
+    stroke(0)  # black
+    stroke_weight(10)
+    circle(width / 2, height / 2, width * 0.75)
+
+run()
         </cc-code-block>
-        <div id="p5-greyscale"></div>
+
+        <div id="p5-greyscale-code"></div>
+        <script>
+            new p5(p => {
+                p.setup = () => {
+                    p.createCanvas(350, 350);
+                    p.background(191);
+                    p.fill(255);
+                    p.stroke(0);
+                    p.strokeWeight(10);
+                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
+                };
+            }, "p5-greyscale-code");
+        </script>
+
+        <p>...</p>
+
+        <div id="p5-greyscale-tool"></div>
         <script>
             new p5(p => {
                 function contrastColor(color) {
@@ -44,7 +72,7 @@
                 
                 p.setup = () => {
                     p.createCanvas(350, 150);
-                    p.slider = makeSlider("Grey", 0, 255, 128, 1);
+                    p.slider = makeSlider("Shade", 0, 255, 128, 1);
                 };
 
                 p.draw = () => {
@@ -100,7 +128,7 @@
 
                     return slider;
                 }
-            }, "p5-greyscale");
+            }, "p5-greyscale-tool");
         </script>
     </section>
 
@@ -108,9 +136,36 @@
 
     <section>
         <p>...</p>
+
         <cc-code-block>
-# ...
+from p5 import *
+
+def setup():
+    size(300, 300)
+    background("lightskyblue")
+    fill("mediumorchid")
+    stroke("teal")
+    stroke_weight(10)
+    circle(width / 2, height / 2, width * 0.75)
+
+run()
         </cc-code-block>
+
+        <div id="p5-named-code"></div>
+        <script>
+            new p5(p => {
+                p.setup = () => {
+                    p.createCanvas(350, 350);
+                    p.background("lightskyblue");
+                    p.fill("mediumorchid");
+                    p.stroke("teal");
+                    p.strokeWeight(10);
+                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
+                };
+            }, "p5-named-code");
+        </script>
+
+        <p>...</p>
         <div id="named-colors-table"></div>
     </section>
 
@@ -119,9 +174,37 @@
     <section>
         <p>...</p>
         <cc-code-block>
-# ...
+from p5 import *
+
+def setup():
+    size(300, 300)
+    color_mode(RGB)  # THIS LINE IS OPTIONAL, RGB MODE IS THE DEFAULT
+    background(212, 247, 212)  # or "#D4F7D4", some light green
+    fill(85, 158, 84)  # or "#559E54", some dark green
+    stroke(154, 7, 148)  # or "#9A0794", some purple
+    stroke_weight(10)
+    circle(width / 2, height / 2, width * 0.75)
+
+run()
         </cc-code-block>
-        <div id="p5-rgb"></div>
+
+        <div id="p5-rgb-code"></div>
+        <script>
+            new p5(p => {
+                p.setup = () => {
+                    p.createCanvas(350, 350);
+                    p.background(212, 247, 212);
+                    p.fill(85, 158, 84);
+                    p.stroke(154, 7, 148);
+                    p.strokeWeight(10);
+                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
+                };
+            }, "p5-rgb-code");
+        </script>
+
+        <p>...</p>
+
+        <div id="p5-rgb-tool"></div>
         <script>
             new p5(p => {
                 function contrastColor(color) {
@@ -221,7 +304,7 @@
                     p.legendG.html(formatValue(p.sliderG.value()));
                     p.legendB.html(formatValue(p.sliderB.value()));
                 }
-            }, "p5-rgb");
+            }, "p5-rgb-tool");
         </script>
     </section>
 
@@ -346,9 +429,38 @@
         <p>...</p>
 
         <cc-code-block>
-# ...
+from p5 import *
+
+def setup():
+    size(300, 300)
+    color_mode(HSB)  # DO NOT FORGET THIS LINE
+    background(212, 247, 212)  # some blue
+    fill(85, 158, 84)  # some green
+    stroke(154, 7, 148)  # some white
+    stroke_weight(10)
+    circle(width / 2, height / 2, width * 0.75)
+
+run()
         </cc-code-block>
-        <div id="p5-hsb"></div>
+
+        <div id="p5-hsb-code"></div>
+        <script>
+            new p5(p => {
+                p.setup = () => {
+                    p.createCanvas(350, 350);
+                    p.colorMode(p.HSB, 360, 100, 100);
+                    p.background(212, 247, 212);
+                    p.fill(85, 158, 84);
+                    p.stroke(154, 7, 148);
+                    p.strokeWeight(10);
+                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
+                };
+            }, "p5-hsb-code");
+        </script>
+
+        <p>...</p>
+
+        <div id="p5-hsb-tool"></div>
         <script>
             new p5(p => {
                 function contrastColor(color) {
@@ -436,19 +548,111 @@
                     p.legendS.html(formatValue(p.sliderS.value()));
                     p.legendB.html(formatValue(p.sliderB.value()));
                 }
-            }, "p5-hsb");
+            }, "p5-hsb-tool");
         </script>
     </section>
 
     <h2 id="transparency">Transparency</h2>
 
     <section>
+
         <p>...</p>
-        <cc-code-block>
-# ...
-        </cc-code-block>
-        <div id="p5-transparency"></div>
+
+        <div id="p5-transparency-tool"></div>
         <script>
+            new p5(p => {
+                p.setup = () => {
+                    p.createCanvas(350, 100);
+                    p.slider = makeSlider("Alpha", 0, 255, 128, 1);
+                };
+
+                p.draw = () => {
+                    p.background(240);
+
+                    // Red rectangle
+                    p.fill(255, 0, 0, 255);
+                    p.noStroke();
+                    p.rect(p.width * 0.4, 0, p.width * 0.2, p.height);
+
+                    const alpha = p.slider.value();
+                    p.fill(0, 0, 255, alpha);
+                    p.rect(0, p.height / 4, p.width, p.height / 2);
+                };
+
+                function makeSlider(labelText, minValue, maxValue, initValue, step) {
+                    const div = p.createDiv();
+
+                    const label = p.createSpan(labelText);
+                    label.parent(div);
+
+                    const slider = p.createSlider(minValue, maxValue, initValue, step);
+                    slider.style("margin", "0px 10px");
+                    slider.parent(div);
+                    slider.input(() => value.html(slider.value()));
+
+                    const value = p.createSpan(initValue);
+                    value.parent(div);
+
+                    return slider;
+                }
+            }, "p5-transparency-tool");
+        </script>
+
+        <p>...</p>
+
+        <cc-code-block>
+from p5 import *
+from math import cos
+
+def setup():
+    size(300, 300)
+
+def draw():
+    background(240)
+
+    # Red rectangle
+    fill(255, 0, 0, 255)
+    no_stroke()
+    rect(width * 0.4, 0, width * 0.2, height)
+
+    # Blue circle
+    alpha = map(cos(radians(frame_count)), -1, +1, 0, 255)
+    fill(0, 0, 255, alpha)
+    circle(width / 2, height / 2, width * 0.75)
+
+    # Text
+    fill(0)
+    text(f"Alpha = {int(alpha)}", 10, 20)
+        
+run(frame_rate=10)
+        </cc-code-block>
+
+        <div id="p5-transparency-code"></div>
+        <script>
+            new p5(p => {
+                p.setup = () => {
+                    p.createCanvas(350, 350);
+                    p.frameRate(10);
+                };
+
+                p.draw = () => {
+                    p.background(240);
+
+                    // Red rectangle
+                    p.fill(255, 0, 0, 255);
+                    p.noStroke();
+                    p.rect(p.width * 0.4, 0, p.width * 0.2, p.height);
+
+                    // Blue circle
+                    const alpha = p.map(p.cos(p.radians(p.frameCount)), -1, +1, 0, 255);
+                    p.fill(0, 0, 255, alpha);
+                    p.circle(p.width / 2, p.height / 2, p.width * 0.75);
+
+                    // Text
+                    p.fill(0);
+                    p.text(`Alpha = ${Math.round(alpha)}`, 10, 20);
+                };
+            }, "p5-transparency-code");
         </script>
     </section>
 
