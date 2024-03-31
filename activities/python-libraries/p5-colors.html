@@ -279,20 +279,30 @@ run()
         </script>
 
         <p>...</p>
+
+        <ul>
+            <li>(r, g, b)</li>
+            <li>(r, g, b, a)</li>
+            <li>color_mode(RGB)</li>
+            <li>color_mode(RGB, mr, mg, mb)</li>
+            <li>color_mode(RGB, mr, mg, mb, ma)</li>
+        </ul>
+
+        <p>...</p>
                 
         <cc-code-block>
-        from p5 import *
+from p5 import *
 
-        def setup():
-        size(300, 300)
-        color_mode(RGB)  # THIS LINE IS OPTIONAL, RGB MODE IS THE DEFAULT
-        background(212, 247, 212)  # or "#D4F7D4", some light green
-        fill(85, 158, 84)  # or "#559E54", some dark green
-        stroke(154, 7, 148)  # or "#9A0794", some purple
-        stroke_weight(10)
-        circle(width / 2, height / 2, width * 0.75)
+def setup():
+    size(300, 300)
+    color_mode(RGB)  # THIS LINE IS OPTIONAL, RGB MODE IS THE DEFAULT
+    background(212, 247, 212)  # or "#D4F7D4", some light green
+    fill(85, 158, 84)  # or "#559E54", some dark green
+    stroke(154, 7, 148)  # or "#9A0794", some purple
+    stroke_weight(10)
+    circle(width / 2, height / 2, width * 0.75)
 
-        run()
+run()
         </cc-code-block>
 
         <div id="p5-rgb-code"></div>
@@ -523,19 +533,29 @@ run()
 
         <p>...</p>
 
+        <ul>
+            <li>(h, s, b)</li>
+            <li>(h, s, b, a)</li>
+            <li>color_mode(HSB)</li>
+            <li>color_mode(HSB, mh, ms, mb)</li>
+            <li>color_mode(HSB, mh, ms, mb, ma)</li>
+        </ul>
+
+        <p>...</p>
+
         <cc-code-block>
-        from p5 import *
+from p5 import *
 
-        def setup():
-        size(300, 300)
-        color_mode(HSB)  # DO NOT FORGET THIS LINE
-        background(212, 247, 212)  # some blue
-        fill(85, 158, 84)  # some green
-        stroke(154, 7, 148)  # some white
-        stroke_weight(10)
-        circle(width / 2, height / 2, width * 0.75)
+def setup():
+    size(300, 300)
+    color_mode(HSB)  # DO NOT FORGET THIS LINE
+    background(212, 247, 212)  # some blue
+    fill(85, 158, 84)  # some green
+    stroke(154, 7, 148)  # some white
+    stroke_weight(10)
+    circle(width / 2, height / 2, width * 0.75)
 
-        run()
+    run()
         </cc-code-block>
 
         <div id="p5-hsb-code"></div>
@@ -599,6 +619,15 @@ run()
                 }
             }, "p5-transparency-tool");
         </script>
+
+        <p>...</p>
+
+        <ul>
+            <li>#rrggbbaa</li>
+            <li>#hhssbbaa</li>
+            <li>(r, g, b, a)</li>
+            <li>(h, s, b, a)</li>
+        </ul>
 
         <p>...</p>
 
