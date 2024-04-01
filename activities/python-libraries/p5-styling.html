@@ -78,6 +78,10 @@ def mouse_pressed():
                 p.touchMoved = p.draw_circle;  
 
                 p.mousePressed = () => {
+                    // Do nothing if the mouse is pressed outside the canvas.
+                    if (p.mouseX < 0 || p.mouseX > p.width || p.mouseY < 0 || p.mouseY > p.height) {
+                        return;
+                    }
                     p.reset_canvas();
                 };
             }, "p5-background");
