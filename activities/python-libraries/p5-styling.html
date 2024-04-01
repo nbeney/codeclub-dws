@@ -65,7 +65,7 @@ def mouse_pressed():
                     p.text("Click to reset the canvas", 10, 20);
                 };
 
-                p.mouseMoved = () => {
+                p.draw_circle = () => {
                     p.push();
                     p.colorMode(p.HSB);
                     p.fill(p.frameCount % 360, 100, 100, 0.3);
@@ -73,13 +73,9 @@ def mouse_pressed():
                     p.pop();
                 };
 
-                p.touchMoved = () => {
-                    p.push();
-                    p.colorMode(p.HSB);
-                    p.fill(p.frameCount % 360, 100, 100, 0.3);
-                    p.circle(p.mouseX, p.mouseY, 50);
-                    p.pop();
-                };
+                p.mouseMoved = p.draw_circle;  
+
+                p.touchMoved = p.draw_circle;  
 
                 p.mousePressed = () => {
                     p.reset_canvas();
