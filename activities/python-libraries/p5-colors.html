@@ -636,7 +636,7 @@ from p5 import *
 from math import cos
 
 def setup():
-    size(300, 300)
+    size(350, 350)
 
 def draw():
     background(240)
@@ -647,26 +647,25 @@ def draw():
     rect(width * 0.4, height / 4, width * 0.2, height)
 
     # Leaves (opaque)
-    fill("limegreen")
+    fill("green")
     circle(width / 2, height / 2, width * 0.75)
 
     # Apples (opacity changes with time)
     alpha = map(cos(radians(frame_count)), -1, +1, 0, 255)
-    fill(255, 0, 0, alpha)
-    circle(86, 192, 25)
-    circle(157, 221, 25)
-    circle(211, 139, 25)
-    circle(94, 124, 25)
-    circle(154, 82, 25)
-    circle(145, 158, 25)
-    circle(205, 197, 25)
+    fill(255, 0, 0, alpha)  # <=== WE USE TRANSPARENCY HERE
+    circle(width / 2, height / 2, 25)
+    circle(175, 88, 25)
+    circle(251, 131, 25)
+    circle(251, 219, 25)
+    circle(175, 263, 25)
+    circle(99, 219, 25)
+    circle(99, 131, 25)
 
     # Text
     fill(0)
     text(f"Alpha = {int(alpha)}", 10, 10)
         
-run()
-        </cc-code-block>
+run()        </cc-code-block>
 
         <div id="p5-transparency-code"></div>
         <script>
@@ -684,21 +683,20 @@ run()
                     p.rect(p.width * 0.4, p.height / 4, p.width * 0.2, p.height);
 
                     // Leaves (opaque)
-                    p.fill("limegreen");
+                    p.fill("green");
                     p.circle(p.width / 2, p.height / 2, p.width * 0.75);
 
                     // Apples (opacity changes with time)
                     const alpha = p.map(p.cos(p.radians(p.frameCount)), -1, +1, 0, 255);
                     p.fill(255, 0, 0, alpha);
                     p.push();
-                    p.translate(25, 25);
-                    p.circle(86, 192, 30);
-                    p.circle(157, 221, 30);
-                    p.circle(211, 139, 30);
-                    p.circle(94, 124, 30);
-                    p.circle(154, 82, 30);
-                    p.circle(145, 158, 30);
-                    p.circle(205, 197, 30);
+                    p.circle(p.width / 2, p.height / 2, 25)
+                    p.circle(175, 88, 25);
+                    p.circle(251, 131, 25);
+                    p.circle(251, 219, 25);
+                    p.circle(175, 263, 25);
+                    p.circle(99, 219, 25);
+                    p.circle(99, 131, 25);
                     p.pop();
 
                     // Text
