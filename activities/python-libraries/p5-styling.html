@@ -73,6 +73,14 @@ def mouse_pressed():
                     p.pop();
                 };
 
+                p.touchMoved = () => {
+                    p.push();
+                    p.colorMode(p.HSB);
+                    p.fill(p.frameCount % 360, 100, 100, 0.3);
+                    p.circle(p.mouseX, p.mouseY, 50);
+                    p.pop();
+                };
+
                 p.mousePressed = () => {
                     p.reset_canvas();
                 };
@@ -395,7 +403,7 @@ run()
             new p5(p => {
                 p.setup = () => {
                     p.createCanvas(350, 350);
-                    
+
                     const LEFT = p.width * 1/5;
                     const CENTER = p.width * 1/2;
                     const RIGHT = p.width * 4/5;
