@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Truchet Tiles</title>
+    <script src="../../../custom-elements/custom-navbar.js"></script>
+    <script src="../../../custom-elements/custom-badges.js"></script>
+    <script src="../../../custom-elements/custom-guizero.js"></script>
+    <script type="module" src="../../../custom-elements/custom-code-block.js"></script>
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+
+<body class="container">
+
+    <cc-navbar active="p5" level="3" />
+
+    <h1>Truchet Tiles
+        <cc-badge-easy/>
+    </h1>
+
+    <h2 style="color: red;">UNDER CONSTRUCTION - UNDER CONSTRUCTION - UNDER CONSTRUCTION</h2>
+
+    <section>
+        <h2>What will I make?</h2>
+
+        <p>A program to draw cool patterns by repeating <a href="https://en.wikipedia.org/wiki/Truchet_tiles">Truchet tiles</a>.</p>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="triangles-tab" data-bs-toggle="tab" data-bs-target="#triangles-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Triangles</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="diagonals-tab" data-bs-toggle="tab" data-bs-target="#diagonals-tab-pane" type="button" role="tab" aria-controls="diagonals-tab-pane" aria-selected="false">Diagonals</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="circles-tab" data-bs-toggle="tab" data-bs-target="#circles-tab-pane" type="button" role="tab" aria-controls="circles-tab-pane" aria-selected="false">Circles</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="smith-tab" data-bs-toggle="tab" data-bs-target="#smith-tab-pane" type="button" role="tab" aria-controls="smith-tab-pane" aria-selected="false">Smith</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="triangles-tab-pane" role="tabpanel" aria-labelledby="triannge-tab" tabindex="0">
+                Triangles...
+            </div>
+            <div class="tab-pane fade" id="diagonals-tab-pane" role="tabpanel" aria-labelledby="diagonals-tab" tabindex="0">
+                Diagonals...
+            </div>
+            <div class="tab-pane fade" id="circles-tab-pane" role="tabpanel" aria-labelledby="circles-tab" tabindex="0">
+                Circles...
+            </div>
+            <div class="tab-pane fade" id="smith-tab-pane" role="tabpanel" aria-labelledby="smith-tab" tabindex="0">
+                Smith...
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Instructions</h2>
+        <ol>
+            <li>Open the <a href="https://editor.raspberrypi.org/en/projects/ajar-plank-most" target="_blank">starter project</a> and click the <strong>Run</strong> button.</li>
+            <li>Login to be able to save your work.</li>
+            <li>...</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>What can I try next?</h2>
+        <p>...</p>
+        <!--
+        <p>Here are some things you can try to make the app better. They are independent from each other so you can pick just a couple or do them in a different order. If you get stuck, use the <em>Hints</em> button or read the Guizero documentation (see <a href="../index.html">Build an app with Guizero</a>).</p>
+        <p>And of course you can also use your imagination and change the app as you like!</p>
+        <ul>
+            <li>Add a button to <strong>change the background color</strong>.
+                <ol>
+                    <li>Create a new <cc-gz-pushbutton/> with <code>text="Background"</code> (or an image) and linked to the <code>on_background</code> callback function.</li>
+                    <li>Create a new <code>on_background</code> callback function to change the background color of <code>output_text</code>.</li>
+                    <details class="hints">
+                        <summary>Hints</summary>
+                        <ul>
+                            <li>Check the existing <code>on_color</code> callback function. It does almost what you need but it changes the foreground color instead of the background color.</li>
+                            <li>Check the documentation for <cc-gz-textbox/> and find the property you need to change.</li>
+                        </ul>
+                    </details>
+                </ol>
+            </li>
+        </ul>
+        -->
+    </section>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</html>
