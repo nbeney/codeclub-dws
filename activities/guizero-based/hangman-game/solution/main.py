@@ -1,3 +1,7 @@
+# Add the folder containing the guizero library to the Python path. Only required in some schools.
+import sys
+sys.path.append(r"\\dwstr04\Student Shared\CodingClub\python-packages")
+
 from guizero import *
 from resources import path_for, find_images_in_dir
 from data import CAPITALS_BY_COUNTRY, CATEGORIES, COUNTRIES_BY_CAPITAL

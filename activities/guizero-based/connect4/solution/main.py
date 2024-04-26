@@ -1,3 +1,7 @@
+# Add the folder containing the guizero library to the Python path. Only required in some schools.
+import sys
+sys.path.append(r"\\dwstr04\Student Shared\CodingClub\python-packages")
+
 import random
 import guizero as gz
 import connect4 as c4
