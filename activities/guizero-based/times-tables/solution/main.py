@@ -98,13 +98,13 @@ if __name__ == "__main__":
     tools = Box(app)
 
     PushButton(
-        tools, align="left", image=IMAGE_LETTERS, width=76, height=47, command=on_click_letters
+        tools, align="left", image=IMAGE_LETTERS, command=on_click_letters
     )
 
     Text(tools, align="left", text="", width="5")  # spacer
 
     PushButton(
-        tools, align="left", image=IMAGE_VOICE, width=51, height=47, command=on_click_loudspeaker
+        tools, align="left", image=IMAGE_VOICE, command=on_click_loudspeaker
     )
 
     app.last_number = random.randint(1, 12)

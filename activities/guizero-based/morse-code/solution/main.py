@@ -64,7 +64,7 @@ if __name__ == "__main__":
 
     Text(app)  # spacer
 
-    Picture(app, image=IMAGE_LOGO, width=189, height=136)
+    Picture(app, image=IMAGE_LOGO)
 
     Text(app)  # spacer
 
@@ -86,7 +86,7 @@ if __name__ == "__main__":
     Text(app)  # spacer
 
     button_play = PushButton(
-        app, image=IMAGE_SOUND, width=51, height=51, command=play_sound, enabled=has_sound
+        app, image=IMAGE_SOUND, command=play_sound, enabled=has_sound
     )
 
     on_change_text()

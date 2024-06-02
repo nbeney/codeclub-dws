@@ -106,9 +106,9 @@ if __name__ == "__main__":
 
     # Make the title.
     box_title = Box(app)
-    Picture(box_title, align="left", image=IMAGE_ALPHABET, width=48, height=48)
+    Picture(box_title, align="left", image=IMAGE_ALPHABET)
     Text(box_title, align="left", text="  Wordle  ", size=30)
-    Picture(box_title, align="left", image=IMAGE_ALPHABET, width=48, height=48)
+    Picture(box_title, align="left", image=IMAGE_ALPHABET)
 
     Text(app)  # spacer
 

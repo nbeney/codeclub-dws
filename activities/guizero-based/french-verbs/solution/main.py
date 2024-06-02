@@ -25,7 +25,7 @@ def on_change():
 if __name__ == "__main__":
     app = App(title="French Verbs", width=600, height=400)
 
-    Picture(app, image=IMAGE_LOGO, width=265, height=90)
+    Picture(app, image=IMAGE_LOGO)
 
     Text(app, text="")  # spacer
 

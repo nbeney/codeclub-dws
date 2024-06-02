@@ -111,7 +111,7 @@ if __name__ == "__main__":
     Text(box, align="right", text="  ")  # spacer
 
     PushButton(
-        box, align="right", text="", image=IMAGE_VOICE, width=32, height=32, command=on_voice
+        box, align="right", text="", image=IMAGE_VOICE, command=on_voice
     )
 
     Text(box, align="right", text="")  # spacer

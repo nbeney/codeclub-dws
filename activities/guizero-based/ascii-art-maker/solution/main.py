@@ -69,8 +69,6 @@ if __name__ == "__main__":
         align="left",
         text="",
         image=IMAGE_COLORS,
-        width=32,
-        height=32,
         command=on_color,
     )
 
@@ -79,8 +77,6 @@ if __name__ == "__main__":
         align="left",
         text="",
         image=IMAGE_SURPRISE,
-        width=32,
-        height=32,
         command=on_surprise,
     )
 

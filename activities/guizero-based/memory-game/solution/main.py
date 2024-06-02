@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
     Text(app, text="")  # spacer
 
-    p = Picture(app, image=IMAGE_LOGO, width=277, height=88)
+    p = Picture(app, image=IMAGE_LOGO)
 
     Text(app, text="")  # spacer
 

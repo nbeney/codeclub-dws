@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     Text(app, align="right", width=3)  # spacer
 
-    Picture(app, align="right", image=IMAGE_LOGO, width=83, height=240)
+    Picture(app, align="right", image=IMAGE_LOGO)
 
     box_temperatures = Box(app, align="right", width="fill")
 

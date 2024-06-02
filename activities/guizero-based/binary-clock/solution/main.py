@@ -85,8 +85,6 @@ if __name__ == "__main__":
 
     button_loudspeaker = PushButton(
         app, image=IMAGE_LOUDSPEAKER, command=on_click_loudspeaker)
-    button_loudspeaker.width //= 10
-    button_loudspeaker.height //= 10
 
     on_update_clock()
 

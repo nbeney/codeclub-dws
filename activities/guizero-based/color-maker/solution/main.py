@@ -73,9 +73,9 @@ if __name__ == "__main__":
     Text(app)  # spacer
 
     box = Box(app)
-    Picture(box, align="left", image=IMAGE_WHEEL, width=50, height=50)
+    Picture(box, align="left", image=IMAGE_WHEEL)
     Text(box, align="left", text="  Color Maker  ", size=30)
-    Picture(box, align="left", image=IMAGE_PALETTE, width=50, height=50)
+    Picture(box, align="left", image=IMAGE_PALETTE)
 
     Text(app)  # spacer
 
@@ -94,6 +94,6 @@ if __name__ == "__main__":
 
     Text(app)  # spacer
 
-    patch_text = Text(app, size=20, width="fill", height="fill")
+    patch_text = Text(app, size=16, width="fill", height="fill")
 
     app.display()
