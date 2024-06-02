@@ -115,19 +115,18 @@ def create_starterkit_archives():
 
 
 def create_master_archive():
-    zip_file = Path("master.zip")
-    zip_file.parent.mkdir(parents=True, exist_ok=True)
-    with zf.ZipFile(zip_file, "w", zf.ZIP_DEFLATED) as ziph:
+    master_file = Path("activity-packs.zip")
+    master_file.parent.mkdir(parents=True, exist_ok=True)
+    with zf.ZipFile(master_file, "w", zf.ZIP_DEFLATED) as ziph:
         for src_archive in Path("./activities").glob("**/*.zip"):
             section_name = src_archive.parts[1]
             activity_name = src_archive.parts[2]
-            print("COLLECT:", src_archive, " ===> ", zip_file)
-            archive_file = Path(
-                "archives", section_name, activity_name + "-" + src_archive.name
+            dst_archive = Path(
+                "activity-packs", section_name, activity_name + "-" + src_archive.name
             )
-            ziph.write(src_archive, arcname=archive_file)
-
-    ziptoc(zip_file)
+            print("COLLECT:", src_archive, " ===> ", master_file, "as", dst_archive)
+            ziph.write(src_archive, arcname=dst_archive)
+    # ziptoc(master_file)
 
 
 if __name__ == "__main__":
