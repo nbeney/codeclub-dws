@@ -110,3 +110,9 @@ details.hints pre {
     border: 1px solid black;
     margin-bottom: 1em;
 }
+
+#copyright {
+    margin-top: 1em;
+    font-style: italic;
+    color: grey;
+}
