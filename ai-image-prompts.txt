@@ -1,0 +1,15 @@
+# GUIZERO
+
+Front view of an app window containing text fragment, image, table, and chart. The window is square and centered. Background colour is green, flat design, no shadows.
+
+# PYGAME
+
+Front view of a video game console. The window is square and centered. Background colour is yellow, flat design, no shadows.
+
+# ADVENTURELIB
+
+Front view of an open book with castle, dragon, and knight. The book is square and centered. Background colour is violet, flat design, no shadows.
+
+# P5
+
+Front view of a painting with geometric shapes. The painting is square and centered. Background colour is red, flat design, no shadows.
