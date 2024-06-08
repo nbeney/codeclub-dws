@@ -1,3 +1,5 @@
+Front view of a [app window containing text fragment, image, table, and chart]. It is square and centered. Background colour is [green], flat design, no shadows.
+
 # GUIZERO
 
 Front view of an app window containing text fragment, image, table, and chart. The window is square and centered. Background colour is green, flat design, no shadows.
